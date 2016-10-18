@@ -35,6 +35,8 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         self.navigationItem.title = "Connect"
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white, NSFontAttributeName: UIFont(name: "Avenir Next Medium", size: 20)!]
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
         
         var tts = UIImage(named: "tts")
         var stt = UIImage(named: "stt")
@@ -89,6 +91,10 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func dismissKeyboard() {
+        self.message.endEditing(true)
     }
     
     // action triggered when quick response is tapped - speak the button labeled text
