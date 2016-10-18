@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LSy-YU-Q2J">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LSy-YU-Q2J">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Connect-->
@@ -15,11 +16,10 @@
                         <viewControllerLayoutGuide type="bottom" id="QOC-lg-WWN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tOe-B8-nn5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9j2-PD-lNg">
-                                <rect key="frame" x="20" y="72" width="374" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="ltm-5O-plI"/>
                                 </constraints>
@@ -27,21 +27,17 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YA8-bJ-HlQ">
-                                <rect key="frame" x="0.0" y="654" width="414" height="38"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sek-Fn-Qeg">
-                                        <rect key="frame" x="20" y="4" width="374" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nk2-dm-GaV">
-                                                <rect key="frame" x="84" y="0.0" width="72" height="30"/>
                                                 <state key="normal" title="Thank you"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeq-Te-XqP">
-                                                <rect key="frame" x="164" y="0.0" width="66" height="30"/>
                                                 <state key="normal" title="Awesome"/>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="nk2-dm-GaV" firstAttribute="leading" secondItem="sek-Fn-Qeg" secondAttribute="leading" constant="84" id="6bA-gu-8wH"/>
                                             <constraint firstItem="aeq-Te-XqP" firstAttribute="top" secondItem="sek-Fn-Qeg" secondAttribute="top" id="EC0-xK-WI8"/>
@@ -52,10 +48,12 @@
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zWg-tV-CJe">
                                         <rect key="frame" x="28" y="4" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Yes"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvd-A6-PNO">
                                         <rect key="frame" x="66" y="4" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="No"/>
                                     </button>
                                 </subviews>
@@ -69,18 +67,17 @@
                                 </constraints>
                             </scrollView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbd-UF-HSg">
-                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
-                                <color key="barTintColor" red="0.40000000000000002" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.40000000000000002" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <navigationItem id="hWl-wd-CWB">
                                         <nil key="title"/>
                                         <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DBJ-Qz-gEM">
-                                            <rect key="frame" x="177" y="7" width="60" height="30"/>
+                                            <rect key="frame" x="161.5" y="7" width="60" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="15"/>
                                             <state key="normal" title="Add +">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
                                                 <action selector="addQuickResponse:" destination="nbH-YZ-AS8" eventType="touchUpInside" id="hUF-aK-Bvx"/>
@@ -90,25 +87,21 @@
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YP2-z1-KTY">
-                                <rect key="frame" x="0.0" y="645" width="600" height="1"/>
-                                <color key="backgroundColor" red="0.40000000000000002" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.40000000000000002" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Brm-6w-djG"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3aj-2M-Yu5">
-                                <rect key="frame" x="0.0" y="111" width="600" height="1"/>
-                                <color key="backgroundColor" red="0.40000000000000002" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.40000000000000002" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="y8u-HT-wac"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tvl-Ir-zNI">
-                                <rect key="frame" x="0.0" y="120" width="414" height="517"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cR4-YZ-Gbl">
-                                        <rect key="frame" x="20" y="0.0" width="374" height="509"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -129,7 +122,7 @@
                                 </variation>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="9j2-PD-lNg" firstAttribute="top" secondItem="jGM-rK-Nse" secondAttribute="bottom" constant="8" id="2RN-Vg-GJS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hbd-UF-HSg" secondAttribute="trailing" constant="-20" id="2gq-dn-4nt"/>
@@ -163,15 +156,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Connect" id="fIX-z7-cxH">
-                        <barButtonItem key="leftBarButtonItem" image="tts" id="obO-Lq-EQK"/>
-                        <barButtonItem key="rightBarButtonItem" image="stt" id="mCx-bR-Te3">
-                            <connections>
-                                <action selector="speechToText:" destination="nbH-YZ-AS8" id="Wzg-Co-vLw"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <navigationItem key="navigationItem" title="Connect" id="fIX-z7-cxH"/>
                     <connections>
                         <outlet property="add" destination="DBJ-Qz-gEM" id="oyg-T9-hhJ"/>
                         <outlet property="conversation" destination="cR4-YZ-Gbl" id="rto-lc-9Zb"/>
@@ -181,7 +166,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nMk-jN-Qcs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="611" y="693"/>
+            <point key="canvasLocation" x="879" y="692"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HBe-Zu-QAs">
@@ -191,11 +176,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tTi-W1-AOJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.40000000000000002" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.40000000000000002" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="1"/>
-                            <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            <color key="textShadowColor" patternImage="AE8A13D3-3104-40E0-8164-2B4F647AAF55" colorSpace="pattern"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textShadowColor" patternImage="B8BA302D-DCB8-414C-B248-8457A15688DA" colorSpace="pattern"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -209,7 +194,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AE8A13D3-3104-40E0-8164-2B4F647AAF55" width="640" height="920">
+        <image name="B8BA302D-DCB8-414C-B248-8457A15688DA" width="640" height="920">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -39475,7 +39460,7 @@ AAxIACPxXgAAAAAACAAIAAgACAAB/gAAAf4AAAH+AAAB/gAAAf4AAAH+AAAB/gAAAf4AAAH+AAAB/gAA
 Af4AAAH+AAAB/gAAAf4AAAH+AAAB/gAAAf4AAAH+AAAAFAAAAAAIAAH+CAAD/AgABfoIAAf4CAAJ9ggA
 C/QIAA3yCAAP8AgAEe4IABPsCAAV6ggAF+gIABnmCAAb5AgAHeIIAB/gCAAh3ggAI9wIAAEAAQABAAEA
 AAxITGlubwIQAABtbnRyUkdCIFhZWiAHzgACAAkABgAxAABhY3NwTVNGVAAAAABJRUMgc1JHQgAAAAAA
-AAAAAAAAAQAA9tYAAQAAAADTLUhQICAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAA9tYAAQAAAADTLUhQICAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAABFjcHJ0AAABUAAAADNkZXNjAAABhAAAAGx3dHB0AAAB8AAAABRia3B0AAACBAAAABRy
 WFlaAAACGAAAABRnWFlaAAACLAAAABRiWFlaAAACQAAAABRkbW5kAAACVAAAAHBkbWRkAAACxAAAAIh2
 dWVkAAADTAAAAIZ2aWV3AAAD1AAAACRsdW1pAAAD+AAAABRtZWFzAAAEDAAAACR0ZWNoAAAEMAAAAAxy
@@ -39537,7 +39522,5 @@ ACP+8wAj/vcAI/7+ACP/BgAj/xMAI/8YACP/GgAj/xwAI/8hACP/KQAj/ywAI/8xACP/OQAj/zwAI/9O
 ACP/UQAj/1YAAAAAAAAEAQAAAAAAAABBAAAAAAAAAAAAAAAAACP/WA
 </mutableData>
         </image>
-        <image name="stt" width="50" height="33"/>
-        <image name="tts" width="50" height="33"/>
     </resources>
 </document>

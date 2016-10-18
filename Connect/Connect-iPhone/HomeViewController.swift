@@ -26,17 +26,18 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate {
         super.viewDidLoad()
         synthesizer.delegate = self
         self.navigationItem.title = "Connect"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Avenir Next Medium", size: 20)!]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white, NSFontAttributeName: UIFont(name: "Avenir Next Medium", size: 20)!]
+        
         
         var tts = UIImage(named: "tts")
         var stt = UIImage(named: "stt")
 
-        tts = tts?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        tts = tts?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: tts, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(HomeViewController.textToSpeechTapped))
-        stt = stt?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: tts, style: UIBarButtonItemStyle.plain, target: self, action: #selector(HomeViewController.textToSpeechTapped))
+        stt = stt?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: stt, style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: stt, style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.tapQuickResponseButton))  //Tap function will call when user tap on button
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(HomeViewController.longPressQuickResponseButton)) //Long function will call when user long press on button.
         tapGesture.numberOfTapsRequired = 1
@@ -46,7 +47,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate {
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
        
     }
 
@@ -59,53 +60,53 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate {
         let string = self.quickResponseDemo.titleLabel?.text
         let utterance = AVSpeechUtterance(string: string!)
         
-        synthesizer.speakUtterance(utterance)
+        synthesizer.speak(utterance)
     }
     
     func longPressQuickResponseButton() {
-        let alert = UIAlertController(title: "Edit/Delete Quick Response", message: "Edit text field to edit quick response and tap edit, or tap delete to delete quick response", preferredStyle: .Alert)
+        let alert = UIAlertController(title: "Edit/Delete Quick Response", message: "Edit text field to edit quick response and tap edit, or tap delete to delete quick response", preferredStyle: .alert)
         
-        alert.addTextFieldWithConfigurationHandler(configurationTextField)
-        alert.addAction(UIAlertAction(title: "Edit", style: .Cancel, handler:handleCancel))
-        alert.addAction(UIAlertAction(title: "Delete", style: .Default, handler:{ (UIAlertAction) in
+        alert.addTextField(configurationHandler: configurationTextField)
+        alert.addAction(UIAlertAction(title: "Edit", style: .cancel, handler:handleCancel))
+        alert.addAction(UIAlertAction(title: "Delete", style: .default, handler:{ (UIAlertAction) in
             print("Done !!")
             
             print("Item : \(self.tField.text)")
         }))
-        self.presentViewController(alert, animated: true, completion: {
+        self.present(alert, animated: true, completion: {
             print("completion block")
         })
 
     }
     
-    func textToSpeechTapped(sender :UIBarButtonItem) {
+    func textToSpeechTapped(_ sender :UIBarButtonItem) {
         
         if ((self.message.text?.isEmpty)!) {
             
-            let alert = UIAlertController(title: "Error", message: "Please enter a text to be spoken", preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            let alert = UIAlertController(title: "Error", message: "Please enter a text to be spoken", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
             
         } else {
             let string = self.message.text!
             let utterance = AVSpeechUtterance(string: string)
             
-            synthesizer.speakUtterance(utterance)
+            synthesizer.speak(utterance)
             
         }
     }
     
-    func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
         print("starting")
     }
     
-    func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         print("finished")
     }
 
-    func speechSynthesizer(synthesizer: AVSpeechSynthesizer, willSpeakRangeOfSpeechString characterRange: NSRange, utterance: AVSpeechUtterance) {
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, willSpeakRangeOfSpeechString characterRange: NSRange, utterance: AVSpeechUtterance) {
         let mutableAttributedString = NSMutableAttributedString(string: utterance.speechString)
-        mutableAttributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.blueColor(), range: characterRange)
+        mutableAttributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.blue, range: characterRange)
         self.message.attributedText = mutableAttributedString
 
     }
@@ -113,37 +114,35 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
 
 
-    @IBAction func speechToText(sender: UIBarButtonItem) {
-    }
+ 
     
-    
-    @IBAction func addQuickResponse(sender: UIButton) {
+    @IBAction func addQuickResponse(_ sender: UIButton) {
         
         
 
-        let alert = UIAlertController(title: "Add new quick response", message: "", preferredStyle: .Alert)
+        let alert = UIAlertController(title: "Add new quick response", message: "", preferredStyle: .alert)
         
-        alert.addTextFieldWithConfigurationHandler(configurationTextField)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler:handleCancel))
-        alert.addAction(UIAlertAction(title: "Add", style: .Default, handler:{ (UIAlertAction) in
+        alert.addTextField(configurationHandler: configurationTextField)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:handleCancel))
+        alert.addAction(UIAlertAction(title: "Add", style: .default, handler:{ (UIAlertAction) in
             print("Done !!")
             
             print("Item : \(self.tField.text)")
         }))
-        self.presentViewController(alert, animated: true, completion: {
+        self.present(alert, animated: true, completion: {
             print("completion block")
         })
 
     }
     
-    func configurationTextField(textField: UITextField!)
+    func configurationTextField(_ textField: UITextField!)
     {
         print("generating the TextField")
         textField.placeholder = "Enter an item"
         tField = textField
     }
     
-    func handleCancel(alertView: UIAlertAction!)
+    func handleCancel(_ alertView: UIAlertAction!)
     {
         print("Cancelled !!")
     }
