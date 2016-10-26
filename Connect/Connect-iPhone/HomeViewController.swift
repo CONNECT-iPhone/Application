@@ -22,7 +22,6 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     
     //instance variables
     var tField: UITextField!
-    var synthesizer = AVSpeechSynthesizer()
     var speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))
     var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     var recognitionTask: SFSpeechRecognitionTask?
@@ -45,7 +44,6 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         stt = stt?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: stt, style: UIBarButtonItemStyle.plain, target: self, action: #selector(HomeViewController.speechToTextTapped))
         
-        self.synthesizer.delegate = self
         
         
         // this block is to authorize the app to use the microphone - has to be done
@@ -99,9 +97,11 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     
     // action triggered when quick response is tapped - speak the button labeled text
     func tapQuickResponseButton(){
+    
         let string = self.quickResponseDemo.titleLabel?.text
         let utterance = AVSpeechUtterance(string: string!)
-        
+        let synthesizer = AVSpeechSynthesizer()
+        synthesizer.delegate = self
         synthesizer.speak(utterance)
     }
     
@@ -135,6 +135,8 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
             
         } else {
             let string = self.message.text!
+            let synthesizer = AVSpeechSynthesizer()
+            synthesizer.delegate = self
             let utterance = AVSpeechUtterance(string: string)
             synthesizer.speak(utterance)
         }
@@ -153,6 +155,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         let mutableAttributedString = NSMutableAttributedString(string: utterance.speechString)
         mutableAttributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.blue, range: characterRange)
         self.message.attributedText = mutableAttributedString
+        print(mutableAttributedString)
 
     }
     // AVSpeechSynthesizerDelegate delegate funtions end
@@ -162,6 +165,12 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
             audioEngine.stop()
             self.recognitionRequest?.endAudio()
             self.navigationItem.rightBarButtonItem?.isEnabled = false
+            do {
+                try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
+                try AVAudioSession.sharedInstance().setActive(true)
+            } catch {
+                print("audioSession properties weren't set because of an error.")
+            }
         } else {
             startRecordingSpeech()
         }

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		212ECFC51D924C0C00DE702D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212ECFC41D924C0C00DE702D /* AppDelegate.swift */; };
-		212ECFC71D924C0C00DE702D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212ECFC61D924C0C00DE702D /* ViewController.swift */; };
 		212ECFCA1D924C0C00DE702D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 212ECFC81D924C0C00DE702D /* Main.storyboard */; };
 		212ECFCD1D924C0C00DE702D /* Connect_iPhone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 212ECFCB1D924C0C00DE702D /* Connect_iPhone.xcdatamodeld */; };
 		212ECFCF1D924C0C00DE702D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 212ECFCE1D924C0C00DE702D /* Assets.xcassets */; };
@@ -30,7 +29,6 @@
 /* Begin PBXFileReference section */
 		212ECFC11D924C0C00DE702D /* Connect-iPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Connect-iPhone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		212ECFC41D924C0C00DE702D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		212ECFC61D924C0C00DE702D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		212ECFC91D924C0C00DE702D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		212ECFCC1D924C0C00DE702D /* Connect_iPhone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Connect_iPhone.xcdatamodel; sourceTree = "<group>"; };
 		212ECFCE1D924C0C00DE702D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,7 +80,6 @@
 			isa = PBXGroup;
 			children = (
 				212ECFC41D924C0C00DE702D /* AppDelegate.swift */,
-				212ECFC61D924C0C00DE702D /* ViewController.swift */,
 				212ECFC81D924C0C00DE702D /* Main.storyboard */,
 				212ECFCE1D924C0C00DE702D /* Assets.xcassets */,
 				212ECFD01D924C0C00DE702D /* LaunchScreen.storyboard */,
@@ -208,7 +205,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				212ECFCD1D924C0C00DE702D /* Connect_iPhone.xcdatamodeld in Sources */,
-				212ECFC71D924C0C00DE702D /* ViewController.swift in Sources */,
 				212ECFC51D924C0C00DE702D /* AppDelegate.swift in Sources */,
 				21B899E71D99BAAC002545FD /* HomeViewController.swift in Sources */,
 			);
@@ -353,6 +349,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Connect.Connect-iPhone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -368,6 +365,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Connect.Connect-iPhone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
