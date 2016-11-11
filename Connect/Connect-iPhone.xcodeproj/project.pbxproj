@@ -12,6 +12,7 @@
 		212ECFCF1D924C0C00DE702D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 212ECFCE1D924C0C00DE702D /* Assets.xcassets */; };
 		212ECFD21D924C0C00DE702D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 212ECFD01D924C0C00DE702D /* LaunchScreen.storyboard */; };
 		212ECFDD1D924C0C00DE702D /* Connect_iPhoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212ECFDC1D924C0C00DE702D /* Connect_iPhoneTests.swift */; };
+		217EB5CB1DD11E200021DE52 /* Phrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217EB5CA1DD11E200021DE52 /* Phrase.swift */; };
 		2182552A1DC70080006C64B9 /* Connect-iPhone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 218255281DC70080006C64B9 /* Connect-iPhone.xcdatamodeld */; };
 		21B899E71D99BAAC002545FD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B899E61D99BAAC002545FD /* HomeViewController.swift */; };
 		8670C7C69E7397438D15144C /* Pods_Connect_iPhone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE52289396578C35656C897 /* Pods_Connect_iPhone.framework */; };
@@ -38,6 +39,7 @@
 		212ECFD81D924C0C00DE702D /* Connect-iPhoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Connect-iPhoneTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		212ECFDC1D924C0C00DE702D /* Connect_iPhoneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connect_iPhoneTests.swift; sourceTree = "<group>"; };
 		212ECFDE1D924C0C00DE702D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		217EB5CA1DD11E200021DE52 /* Phrase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Phrase.swift; sourceTree = "<group>"; };
 		218255291DC70080006C64B9 /* Connect-iPhone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Connect-iPhone.xcdatamodel"; sourceTree = "<group>"; };
 		21B899E61D99BAAC002545FD /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2565801981A337E7D2CC3C5F /* Pods-Connect-iPhoneTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connect-iPhoneTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Connect-iPhoneTests/Pods-Connect-iPhoneTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				212ECFD31D924C0C00DE702D /* Info.plist */,
 				21B899E61D99BAAC002545FD /* HomeViewController.swift */,
 				218255281DC70080006C64B9 /* Connect-iPhone.xcdatamodeld */,
+				217EB5CA1DD11E200021DE52 /* Phrase.swift */,
 			);
 			path = "Connect-iPhone";
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 			files = (
 				2182552A1DC70080006C64B9 /* Connect-iPhone.xcdatamodeld in Sources */,
 				212ECFC51D924C0C00DE702D /* AppDelegate.swift in Sources */,
+				217EB5CB1DD11E200021DE52 /* Phrase.swift in Sources */,
 				21B899E71D99BAAC002545FD /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

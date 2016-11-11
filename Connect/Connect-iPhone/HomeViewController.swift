@@ -13,7 +13,7 @@ import CoreData
 import ASHorizontalScrollView
 
 
-class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeechRecognizerDelegate, UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeechRecognizerDelegate, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
 
     
     // IBOutlets - are objects dragged from the UI
@@ -27,10 +27,13 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     var recognitionTask: SFSpeechRecognitionTask?
     let audioEngine = AVAudioEngine()
-    var quickResponseButtons = [UIButton]()
     let kCellHeight:CGFloat = 30.0
-    var phrases = [NSManagedObject]()
     var longGesture: UILongPressGestureRecognizer = UILongPressGestureRecognizer()
+    
+    // Create an empty array of LogItem's
+    var phrases = [NSManagedObject]()
+    // Retreive the managedObjectContext from AppDelegate
+    let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
 
 
 
@@ -42,6 +45,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         quickResponseTableView.delegate = self
         quickResponseTableView.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
         quickResponseTableView.isScrollEnabled = false
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         let managedContext = appDelegate.managedObjectContext
@@ -98,9 +102,16 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
 
         
         longGesture = UILongPressGestureRecognizer(target: self, action: #selector(HomeViewController.longPressQuickResponseButton(sender:))) //Long function will call when user long press on button.
-
-        
+        let smartSign = UIMenuItem(title: "SmartSign", action: #selector(toSmartSign))
+        UIMenuController.shared.menuItems = [smartSign]
         // Do any additional setup after loading the view.
+    }
+    
+    
+    func toSmartSign() {
+        if let range = self.message.selectedTextRange, let selectedText = self.message.text(in: range) {
+            print(selectedText)
+        }
     }
     
 
@@ -281,8 +292,6 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         alert.addAction(UIAlertAction(title: "Add", style: .default, handler:{ (UIAlertAction) in
             let textField = alert.textFields!.first
             self.savePhrase(name: textField!.text!)
-            self.view.reloadInputViews()
-            self.quickResponseTableView.reloadData()
         }))
         self.present(alert, animated: true, completion: nil)
 
@@ -309,16 +318,12 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
             try managedContext.save()
             //5
             phrases.append(phrase)
+            
+
+            
         } catch let error as NSError  {
             print("Could not save \(error), \(error.userInfo)")
         }
-    }
-    
-    func deletePhrase(name: String) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let managedContext = appDelegate.managedObjectContext
-        
-        managedContext.delete(<#T##object: NSManagedObject##NSManagedObject#>)
     }
     
     func configurationTextField(_ textField: UITextField!)
@@ -339,26 +344,25 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         
         if (cell == nil) {
             cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "CellPortrait")
-            cell?.selectionStyle = .none
             let horizontalScrollView:ASHorizontalScrollView = ASHorizontalScrollView(frame:CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: kCellHeight))
             
             horizontalScrollView.miniAppearPxOfLastItem = 10
             horizontalScrollView.uniformItemSize = CGSize(width: 100, height: 50)
-            //this must be called after changing any size or margin property of this class to get acurrate margin
-            horizontalScrollView.setItemsMarginOnce()
             print("phrases: \(phrases.count)")
             for i in 0..<phrases.count {
                 let button = UIButton(frame: CGRect.zero)
-                button.backgroundColor = UIColor.darkGray
+                button.backgroundColor = UIColor.lightGray
                 let title = phrases[i].value(forKey: "text") as! String
-                button.setTitle(title, for: UIControlState.normal)
+                button.layer.cornerRadius = 10.0
+                button.clipsToBounds = true
+                button.layer.masksToBounds = true
+                button.setTitle(title as String?, for: UIControlState.normal)
                 button.titleLabel?.textColor = UIColor.white
                 button.titleLabel!.numberOfLines = 0
                 button.titleLabel!.adjustsFontSizeToFitWidth = true
                 horizontalScrollView.addItem(button)
                 button.addTarget(self, action: #selector(HomeViewController.tapQuickResponseButton), for: .touchUpInside)
-                button.addGestureRecognizer(longGesture)
-                
+                button.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(HomeViewController.longPressQuickResponseButton)))
             }
             
             cell?.contentView.addSubview(horizontalScrollView)
@@ -370,6 +374,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
 
 
     }
+    
     
     func tableView(_ tableView: UITableView, numberOfSections section: Int) -> Int {
         return 1
