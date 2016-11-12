@@ -21,6 +21,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     @IBOutlet weak var message: UITextField!
     @IBOutlet weak var add: UIButton!
     @IBOutlet weak var quickResponseTableView: UITableView!
+    
     //instance variables
     var tField: UITextField!
     var speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))
@@ -111,6 +112,8 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     func toSmartSign() {
         if let range = self.message.selectedTextRange, let selectedText = self.message.text(in: range) {
             print(selectedText)
+            let url = "https://www.youtube.com/watch?v=77pnVFLkUjM"
+            SmartSign.openUrl(urlString: url, sender: self)
         }
     }
     

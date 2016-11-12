@@ -12,6 +12,7 @@
 		212ECFCF1D924C0C00DE702D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 212ECFCE1D924C0C00DE702D /* Assets.xcassets */; };
 		212ECFD21D924C0C00DE702D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 212ECFD01D924C0C00DE702D /* LaunchScreen.storyboard */; };
 		212ECFDD1D924C0C00DE702D /* Connect_iPhoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212ECFDC1D924C0C00DE702D /* Connect_iPhoneTests.swift */; };
+		2158B3631DD69323002D2210 /* SmartSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2158B3621DD69323002D2210 /* SmartSign.swift */; };
 		217EB5CB1DD11E200021DE52 /* Phrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217EB5CA1DD11E200021DE52 /* Phrase.swift */; };
 		2182552A1DC70080006C64B9 /* Connect-iPhone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 218255281DC70080006C64B9 /* Connect-iPhone.xcdatamodeld */; };
 		21B899E71D99BAAC002545FD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B899E61D99BAAC002545FD /* HomeViewController.swift */; };
@@ -39,6 +40,7 @@
 		212ECFD81D924C0C00DE702D /* Connect-iPhoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Connect-iPhoneTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		212ECFDC1D924C0C00DE702D /* Connect_iPhoneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connect_iPhoneTests.swift; sourceTree = "<group>"; };
 		212ECFDE1D924C0C00DE702D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2158B3621DD69323002D2210 /* SmartSign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmartSign.swift; sourceTree = "<group>"; };
 		217EB5CA1DD11E200021DE52 /* Phrase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Phrase.swift; sourceTree = "<group>"; };
 		218255291DC70080006C64B9 /* Connect-iPhone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Connect-iPhone.xcdatamodel"; sourceTree = "<group>"; };
 		21B899E61D99BAAC002545FD /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 		212ECFB81D924C0C00DE702D = {
 			isa = PBXGroup;
 			children = (
+				2158B3621DD69323002D2210 /* SmartSign.swift */,
 				212ECFC31D924C0C00DE702D /* Connect-iPhone */,
 				212ECFDB1D924C0C00DE702D /* Connect-iPhoneTests */,
 				212ECFC21D924C0C00DE702D /* Products */,
@@ -141,12 +144,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 212ECFE11D924C0C00DE702D /* Build configuration list for PBXNativeTarget "Connect-iPhone" */;
 			buildPhases = (
-				426DA8B7AF973A0EC444F62A /* 📦 Check Pods Manifest.lock */,
+				426DA8B7AF973A0EC444F62A /* [CP] Check Pods Manifest.lock */,
 				212ECFBD1D924C0C00DE702D /* Sources */,
 				212ECFBE1D924C0C00DE702D /* Frameworks */,
 				212ECFBF1D924C0C00DE702D /* Resources */,
-				53721E4CC29D0B0F9966E65E /* 📦 Embed Pods Frameworks */,
-				F472AD673FA66ECED5A7BC5C /* 📦 Copy Pods Resources */,
+				53721E4CC29D0B0F9966E65E /* [CP] Embed Pods Frameworks */,
+				F472AD673FA66ECED5A7BC5C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -161,12 +164,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 212ECFE41D924C0C00DE702D /* Build configuration list for PBXNativeTarget "Connect-iPhoneTests" */;
 			buildPhases = (
-				E558A8E6EB979CA95238FD51 /* 📦 Check Pods Manifest.lock */,
+				E558A8E6EB979CA95238FD51 /* [CP] Check Pods Manifest.lock */,
 				212ECFD41D924C0C00DE702D /* Sources */,
 				212ECFD51D924C0C00DE702D /* Frameworks */,
 				212ECFD61D924C0C00DE702D /* Resources */,
-				AA779921E12088ABB3CF3CF1 /* 📦 Embed Pods Frameworks */,
-				5B7A8BB9FC2829442111707F /* 📦 Copy Pods Resources */,
+				AA779921E12088ABB3CF3CF1 /* [CP] Embed Pods Frameworks */,
+				5B7A8BB9FC2829442111707F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -241,29 +244,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		426DA8B7AF973A0EC444F62A /* 📦 Check Pods Manifest.lock */ = {
+		426DA8B7AF973A0EC444F62A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		53721E4CC29D0B0F9966E65E /* 📦 Embed Pods Frameworks */ = {
+		53721E4CC29D0B0F9966E65E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,14 +274,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Connect-iPhone/Pods-Connect-iPhone-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5B7A8BB9FC2829442111707F /* 📦 Copy Pods Resources */ = {
+		5B7A8BB9FC2829442111707F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,14 +289,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Connect-iPhoneTests/Pods-Connect-iPhoneTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AA779921E12088ABB3CF3CF1 /* 📦 Embed Pods Frameworks */ = {
+		AA779921E12088ABB3CF3CF1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,29 +304,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Connect-iPhoneTests/Pods-Connect-iPhoneTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E558A8E6EB979CA95238FD51 /* 📦 Check Pods Manifest.lock */ = {
+		E558A8E6EB979CA95238FD51 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		F472AD673FA66ECED5A7BC5C /* 📦 Copy Pods Resources */ = {
+		F472AD673FA66ECED5A7BC5C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,6 +343,7 @@
 			files = (
 				2182552A1DC70080006C64B9 /* Connect-iPhone.xcdatamodeld in Sources */,
 				212ECFC51D924C0C00DE702D /* AppDelegate.swift in Sources */,
+				2158B3631DD69323002D2210 /* SmartSign.swift in Sources */,
 				217EB5CB1DD11E200021DE52 /* Phrase.swift in Sources */,
 				21B899E71D99BAAC002545FD /* HomeViewController.swift in Sources */,
 			);

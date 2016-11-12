@@ -7,27 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1820755212DD208EBA90474A00297B32 /* Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = B7682AE5D6044C5E0316B046D80F6359 /* Info.plist */; };
-		205E73DB82884D933F9A0CAA4ED57E58 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
-		22A49EEB8096D5EDE3DA6F69EFD2FB74 /* ASHorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73637B073C5E065B2345B183DEA81F4D /* ASHorizontalScrollView.swift */; };
-		44732345C558EF072A60FAE273D31413 /* Pods-Connect-iPhoneTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A119BA9646EBEF803106CC062FECE6E /* Pods-Connect-iPhoneTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4FF6F6BB5428751D4CF4E957F843D49F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */; };
-		58513623F3B6057828DBC0C166D75AD4 /* Pods-Connect-iPhone-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CF92A63BB2135CAE021378C299BDCA3 /* Pods-Connect-iPhone-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		73E4BFDAA5E92A26C32F84F4A7CD187E /* ASHorizontalScrollView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 806035A99EDE876EE58C15BDE2B1DBBC /* ASHorizontalScrollView-dummy.m */; };
-		774E0FF9793031559B0492FE616B3C56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
-		965D75363630280F2ACFE3CA58550573 /* ASHorizontalScrollView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A19305704A9BF5C52B3D796658F2216C /* ASHorizontalScrollView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A3A6671172ED431AEA5EF279CE0BD243 /* Pods-Connect-iPhoneTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5BA213E5596F2BD70D78E3D007F5CA /* Pods-Connect-iPhoneTests-dummy.m */; };
-		DDC523DE87EB52682497C01658E94785 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
-		F31B983A18EF8BDEB18067A230B73151 /* Pods-Connect-iPhone-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 656C25596967865B2FA97B86FFED6D5B /* Pods-Connect-iPhone-dummy.m */; };
+		32AF903BE49B6F8C598CBB124ECB0278 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
+		402CA035540B6DBB5A030461960FE213 /* ASHorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEE3C3427D42E84A75B121555F7D9C3 /* ASHorizontalScrollView.swift */; };
+		4D24A45A55C8618C781B8751589D4CF9 /* Pods-Connect-iPhoneTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5BA213E5596F2BD70D78E3D007F5CA /* Pods-Connect-iPhoneTests-dummy.m */; };
+		63A1C09C47076DB607E6612D841AB770 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
+		6D3DC55BBD85A2E1B0646898B02CEB4B /* ASHorizontalScrollView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F6D36850B9EE9EC017AA6237DF6525 /* ASHorizontalScrollView-dummy.m */; };
+		6ECC269A2A1FCCE1FCDEDCD25F57C6D6 /* PBWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BC8C841F13E903FD06566DEBF9B7AB /* PBWebViewController.m */; };
+		86E8B56C3E75ABCE7875BF2A92FD2341 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EC994CDC2D681BA26389F78A7E4B325 /* UIKit.framework */; };
+		8AD250803CF6E13F40742942A765549D /* ASHorizontalScrollView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E7FDDB6FEA55ED9E6B7B04BEFDC78CB5 /* ASHorizontalScrollView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		90FC89C55FF01A1331FFB8361DDEC22F /* PBWebViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 889E740230108F03F7BA244DD6385ACD /* PBWebViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B78A2A7AB0B8D7234F51AD8009FC155F /* PBWebViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA3766E5A3E0F56F37E9D6D0CEBE974 /* PBWebViewController-dummy.m */; };
+		B9EE9C1C8A633A546EEDE647B14E1985 /* Pods-Connect-iPhone-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CF92A63BB2135CAE021378C299BDCA3 /* Pods-Connect-iPhone-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C83806948C1B0A457B0A8AADC203B5D6 /* PBWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = ECE41CB872042C364054870E3BF9C844 /* PBWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E07E5DD74EA7AC84DB8AA2B846F4EB4F /* Pods-Connect-iPhoneTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A119BA9646EBEF803106CC062FECE6E /* Pods-Connect-iPhoneTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E3CB66AD96CBC650D68227D0A9279E65 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
+		E7716F08B21094CB74238B1AD1D785E0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
+		F467DAE81379EB2BAD9A9575ADBCBB4C /* Pods-Connect-iPhone-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 656C25596967865B2FA97B86FFED6D5B /* Pods-Connect-iPhone-dummy.m */; };
+		FD5D8F6699C323B69A0A36D24193BC89 /* Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = 886623F49809A76EFF2BA38B194F2D86 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D0D6FF17C7EC30FD9B156F1CEF696B02 /* PBXContainerItemProxy */ = {
+		4D1612640A49CBFFCAEB6C055CB90B8C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B851E1107F806844151B19F3EA7FE027;
+			remoteGlobalIDString = 4CAD6AD84FAE24AE4744D553E25E9E93;
 			remoteInfo = ASHorizontalScrollView;
+		};
+		97919FD26E5B8EE950DCBEF59AD611E9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 63277D0777F3826302A178AADAB7123F;
+			remoteInfo = PBWebViewController;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -39,84 +51,135 @@
 		19F20E4BFA3D691F17A235D2BCAD7D4F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25844FDFC1ADE9C3EDEA69EA61F910FB /* Pods-Connect-iPhone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Connect-iPhone.release.xcconfig"; sourceTree = "<group>"; };
 		2A119BA9646EBEF803106CC062FECE6E /* Pods-Connect-iPhoneTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Connect-iPhoneTests-umbrella.h"; sourceTree = "<group>"; };
-		2C0B328756F7B6E1D938C7A1BE80A267 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DF3EA3455A8C33F0F2CDBE2FF079795 /* Pods-Connect-iPhoneTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Connect-iPhoneTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		2FFC984C1A0DFD25B27DE377C705D322 /* PBWebViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = PBWebViewController.modulemap; sourceTree = "<group>"; };
 		3C5BA213E5596F2BD70D78E3D007F5CA /* Pods-Connect-iPhoneTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Connect-iPhoneTests-dummy.m"; sourceTree = "<group>"; };
-		42BBE5CF9D014E7B9CB18C6ABD030C3D /* Pods-Connect-iPhoneTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Connect-iPhoneTests.modulemap"; sourceTree = "<group>"; };
-		472FBA94B8ACD686BB018C34948606D1 /* ASHorizontalScrollView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ASHorizontalScrollView.modulemap; sourceTree = "<group>"; };
-		4B6CA286AA3ECA506C87C1D85C87DFEE /* Pods-Connect-iPhone.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Connect-iPhone.modulemap"; sourceTree = "<group>"; };
+		42BBE5CF9D014E7B9CB18C6ABD030C3D /* Pods-Connect-iPhoneTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Connect-iPhoneTests.modulemap"; sourceTree = "<group>"; };
+		4B6CA286AA3ECA506C87C1D85C87DFEE /* Pods-Connect-iPhone.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Connect-iPhone.modulemap"; sourceTree = "<group>"; };
 		5273DD8BEE9A597D970C4D189FF83480 /* Pods-Connect-iPhone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Connect-iPhone.debug.xcconfig"; sourceTree = "<group>"; };
 		5344B3C11202ABC49151638FF16B4184 /* Pods-Connect-iPhoneTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Connect-iPhoneTests.release.xcconfig"; sourceTree = "<group>"; };
 		574E027D954D7A2FCBF979FF1652442A /* Pods-Connect-iPhoneTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Connect-iPhoneTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		5BBFC5F1AC412824F1E9C55B502055C5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5DA3766E5A3E0F56F37E9D6D0CEBE974 /* PBWebViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PBWebViewController-dummy.m"; sourceTree = "<group>"; };
+		616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		656C25596967865B2FA97B86FFED6D5B /* Pods-Connect-iPhone-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Connect-iPhone-dummy.m"; sourceTree = "<group>"; };
 		68EA25F46B1CC5B0B3011947922D58F2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		710433F81B874F1B0AE34DA4AB60157E /* ASHorizontalScrollView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ASHorizontalScrollView-prefix.pch"; sourceTree = "<group>"; };
-		73637B073C5E065B2345B183DEA81F4D /* ASHorizontalScrollView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ASHorizontalScrollView.swift; path = Sources/ASHorizontalScrollView.swift; sourceTree = "<group>"; };
+		6B067A3D9F74DC95A54ADD5C07CE2A1F /* ASHorizontalScrollView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ASHorizontalScrollView.modulemap; sourceTree = "<group>"; };
+		723AE972C17F92D7FD8F0E518D2FF5EF /* Pods_Connect_iPhone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Connect_iPhone.framework; path = "Pods-Connect-iPhone.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		732B59A05C5DB2440B98C1D18B9A532F /* ASHorizontalScrollView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ASHorizontalScrollView.xcconfig; sourceTree = "<group>"; };
 		77EA9C581869D3D76ABFB812B4D0787E /* Pods-Connect-iPhone-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Connect-iPhone-frameworks.sh"; sourceTree = "<group>"; };
+		794C246555F45A3725E4558FFCC8D574 /* PBWebViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PBWebViewController.framework; path = PBWebViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EC994CDC2D681BA26389F78A7E4B325 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		7F379DC6D92238985A53B0A1F95B3AEB /* Pods-Connect-iPhoneTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Connect-iPhoneTests-frameworks.sh"; sourceTree = "<group>"; };
-		806035A99EDE876EE58C15BDE2B1DBBC /* ASHorizontalScrollView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ASHorizontalScrollView-dummy.m"; sourceTree = "<group>"; };
 		824E51A0DFE9DEAA54887411B4786468 /* Pods-Connect-iPhone-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Connect-iPhone-acknowledgements.markdown"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		97FC601376C0AEF0611A2A419DDF6648 /* Pods_Connect_iPhoneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Connect_iPhoneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A19305704A9BF5C52B3D796658F2216C /* ASHorizontalScrollView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ASHorizontalScrollView-umbrella.h"; sourceTree = "<group>"; };
-		A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		B7682AE5D6044C5E0316B046D80F6359 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = Sources/Info.plist; sourceTree = "<group>"; };
-		BC3F65517283E18E88C0C8CC9227CA70 /* ASHorizontalScrollView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ASHorizontalScrollView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C723AB1451ADBD21768483258C1159E1 /* Pods_Connect_iPhone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Connect_iPhone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		886623F49809A76EFF2BA38B194F2D86 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = Sources/Info.plist; sourceTree = "<group>"; };
+		889E740230108F03F7BA244DD6385ACD /* PBWebViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PBWebViewController-umbrella.h"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		94BC8C841F13E903FD06566DEBF9B7AB /* PBWebViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PBWebViewController.m; path = PBWebViewController/PBWebViewController.m; sourceTree = "<group>"; };
+		95AFCEFC68CECBE70063005430833921 /* ASHorizontalScrollView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ASHorizontalScrollView.framework; path = ASHorizontalScrollView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A39FF90299FABEC1D961B40B53AFD1B6 /* Pods_Connect_iPhoneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Connect_iPhoneTests.framework; path = "Pods-Connect-iPhoneTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4F6D36850B9EE9EC017AA6237DF6525 /* ASHorizontalScrollView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ASHorizontalScrollView-dummy.m"; sourceTree = "<group>"; };
+		AB90A85E638E0C3537B8EE6BDC144157 /* PBWebViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PBWebViewController.xcconfig; sourceTree = "<group>"; };
 		CC6FA5094CB3E1926075FE6CA6606A7B /* Pods-Connect-iPhoneTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Connect-iPhoneTests-resources.sh"; sourceTree = "<group>"; };
-		E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		ECEC7F9F46EAA49E350BABC8E08F0A50 /* ASHorizontalScrollView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ASHorizontalScrollView.xcconfig; sourceTree = "<group>"; };
+		DBBCA4C5350E68240C55AFDA9E3D1052 /* PBWebViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PBWebViewController-prefix.pch"; sourceTree = "<group>"; };
+		E7FDDB6FEA55ED9E6B7B04BEFDC78CB5 /* ASHorizontalScrollView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ASHorizontalScrollView-umbrella.h"; sourceTree = "<group>"; };
+		EABF6B2AC5A2CB3DEC45715927826095 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECE41CB872042C364054870E3BF9C844 /* PBWebViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PBWebViewController.h; path = PBWebViewController/PBWebViewController.h; sourceTree = "<group>"; };
+		F91E6AB0F9B888DE88B5DEBA301B9C57 /* ASHorizontalScrollView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ASHorizontalScrollView-prefix.pch"; sourceTree = "<group>"; };
+		FDEE3C3427D42E84A75B121555F7D9C3 /* ASHorizontalScrollView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ASHorizontalScrollView.swift; path = Sources/ASHorizontalScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E238E97F7BF1A605637839886F15A0A4 /* Frameworks */ = {
+		51062B31168288C2E5CEBCA5195E70D9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				205E73DB82884D933F9A0CAA4ED57E58 /* Foundation.framework in Frameworks */,
+				E7716F08B21094CB74238B1AD1D785E0 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EEA1D37CBBE7452F72F01D060B793771 /* Frameworks */ = {
+		90F7D36221588F92813C01A32A11F29A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDC523DE87EB52682497C01658E94785 /* Foundation.framework in Frameworks */,
+				32AF903BE49B6F8C598CBB124ECB0278 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F7974CB980A8AA8EFE70A0A7C9961B76 /* Frameworks */ = {
+		D1D6C0BE6A9DB65623D46DB047507EEF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				774E0FF9793031559B0492FE616B3C56 /* Foundation.framework in Frameworks */,
-				4FF6F6BB5428751D4CF4E957F843D49F /* UIKit.framework in Frameworks */,
+				E3CB66AD96CBC650D68227D0A9279E65 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5BC1572ABB9F32C6603025240961D3E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63A1C09C47076DB607E6612D841AB770 /* Foundation.framework in Frameworks */,
+				86E8B56C3E75ABCE7875BF2A92FD2341 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2C187E0EEAC272A66CF35390BAF922C6 /* Support Files */ = {
+		1DC1217FEB6E81EBD260DFC35D8A8191 /* PBWebViewController */ = {
 			isa = PBXGroup;
 			children = (
-				472FBA94B8ACD686BB018C34948606D1 /* ASHorizontalScrollView.modulemap */,
-				ECEC7F9F46EAA49E350BABC8E08F0A50 /* ASHorizontalScrollView.xcconfig */,
-				806035A99EDE876EE58C15BDE2B1DBBC /* ASHorizontalScrollView-dummy.m */,
-				710433F81B874F1B0AE34DA4AB60157E /* ASHorizontalScrollView-prefix.pch */,
-				A19305704A9BF5C52B3D796658F2216C /* ASHorizontalScrollView-umbrella.h */,
-				2C0B328756F7B6E1D938C7A1BE80A267 /* Info.plist */,
+				ECE41CB872042C364054870E3BF9C844 /* PBWebViewController.h */,
+				94BC8C841F13E903FD06566DEBF9B7AB /* PBWebViewController.m */,
+				4D5002DADBD485FF871FC26967B3E459 /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/ASHorizontalScrollView";
+			name = PBWebViewController;
+			path = PBWebViewController;
+			sourceTree = "<group>";
+		};
+		4249DB6851A5F17E99DB6ABA8A456174 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AACAE2B7DDFB5E4730680AC1E99448F2 /* ASHorizontalScrollView */,
+				1DC1217FEB6E81EBD260DFC35D8A8191 /* PBWebViewController */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F302CD3B306AF1ED96B9AF31FCDBC26C /* iOS */,
+				E6EE98446B568159EE277B68FD442AF0 /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4AAF4380DD1CC61A988D7BE8658863B1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6B067A3D9F74DC95A54ADD5C07CE2A1F /* ASHorizontalScrollView.modulemap */,
+				732B59A05C5DB2440B98C1D18B9A532F /* ASHorizontalScrollView.xcconfig */,
+				A4F6D36850B9EE9EC017AA6237DF6525 /* ASHorizontalScrollView-dummy.m */,
+				F91E6AB0F9B888DE88B5DEBA301B9C57 /* ASHorizontalScrollView-prefix.pch */,
+				E7FDDB6FEA55ED9E6B7B04BEFDC78CB5 /* ASHorizontalScrollView-umbrella.h */,
+				5BBFC5F1AC412824F1E9C55B502055C5 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/ASHorizontalScrollView";
+			sourceTree = "<group>";
+		};
+		4D5002DADBD485FF871FC26967B3E459 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				EABF6B2AC5A2CB3DEC45715927826095 /* Info.plist */,
+				2FFC984C1A0DFD25B27DE377C705D322 /* PBWebViewController.modulemap */,
+				AB90A85E638E0C3537B8EE6BDC144157 /* PBWebViewController.xcconfig */,
+				5DA3766E5A3E0F56F37E9D6D0CEBE974 /* PBWebViewController-dummy.m */,
+				DBBCA4C5350E68240C55AFDA9E3D1052 /* PBWebViewController-prefix.pch */,
+				889E740230108F03F7BA244DD6385ACD /* PBWebViewController-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/PBWebViewController";
 			sourceTree = "<group>";
 		};
 		6DEFF25C526F30E8BC39F001071985C9 /* Targets Support Files */ = {
@@ -133,8 +196,8 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
-				E52A205FD8FB938EA355BE28289D6499 /* Pods */,
-				B426E00BE35E69BD4843A58CA30FA563 /* Products */,
+				4249DB6851A5F17E99DB6ABA8A456174 /* Pods */,
+				C8F8117814C51E563E6710BB1D7E8212 /* Products */,
 				6DEFF25C526F30E8BC39F001071985C9 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -157,22 +220,24 @@
 			path = "Target Support Files/Pods-Connect-iPhone";
 			sourceTree = "<group>";
 		};
-		9FCE9FB069AA1D6B624D5B147417F78D /* ASHorizontalScrollView */ = {
+		AACAE2B7DDFB5E4730680AC1E99448F2 /* ASHorizontalScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				73637B073C5E065B2345B183DEA81F4D /* ASHorizontalScrollView.swift */,
-				B7682AE5D6044C5E0316B046D80F6359 /* Info.plist */,
-				2C187E0EEAC272A66CF35390BAF922C6 /* Support Files */,
+				FDEE3C3427D42E84A75B121555F7D9C3 /* ASHorizontalScrollView.swift */,
+				886623F49809A76EFF2BA38B194F2D86 /* Info.plist */,
+				4AAF4380DD1CC61A988D7BE8658863B1 /* Support Files */,
 			);
+			name = ASHorizontalScrollView;
 			path = ASHorizontalScrollView;
 			sourceTree = "<group>";
 		};
-		B426E00BE35E69BD4843A58CA30FA563 /* Products */ = {
+		C8F8117814C51E563E6710BB1D7E8212 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BC3F65517283E18E88C0C8CC9227CA70 /* ASHorizontalScrollView.framework */,
-				C723AB1451ADBD21768483258C1159E1 /* Pods_Connect_iPhone.framework */,
-				97FC601376C0AEF0611A2A419DDF6648 /* Pods_Connect_iPhoneTests.framework */,
+				95AFCEFC68CECBE70063005430833921 /* ASHorizontalScrollView.framework */,
+				794C246555F45A3725E4558FFCC8D574 /* PBWebViewController.framework */,
+				723AE972C17F92D7FD8F0E518D2FF5EF /* Pods_Connect_iPhone.framework */,
+				A39FF90299FABEC1D961B40B53AFD1B6 /* Pods_Connect_iPhoneTests.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,19 +260,11 @@
 			path = "Target Support Files/Pods-Connect-iPhoneTests";
 			sourceTree = "<group>";
 		};
-		E52A205FD8FB938EA355BE28289D6499 /* Pods */ = {
+		E6EE98446B568159EE277B68FD442AF0 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				9FCE9FB069AA1D6B624D5B147417F78D /* ASHorizontalScrollView */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		F302CD3B306AF1ED96B9AF31FCDBC26C /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */,
-				E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */,
+				616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */,
+				7EC994CDC2D681BA26389F78A7E4B325 /* UIKit.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
@@ -215,40 +272,49 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		6DF2CE28A6850E0C050B3E4B1CC15F89 /* Headers */ = {
+		813C25A09D58DDDF642D3397F247A09D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58513623F3B6057828DBC0C166D75AD4 /* Pods-Connect-iPhone-umbrella.h in Headers */,
+				8AD250803CF6E13F40742942A765549D /* ASHorizontalScrollView-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A0325D9A8725A7CC55B71847C6C2B969 /* Headers */ = {
+		B53E4FB34967AD13556D2AC2D7D3F761 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44732345C558EF072A60FAE273D31413 /* Pods-Connect-iPhoneTests-umbrella.h in Headers */,
+				90FC89C55FF01A1331FFB8361DDEC22F /* PBWebViewController-umbrella.h in Headers */,
+				C83806948C1B0A457B0A8AADC203B5D6 /* PBWebViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F9663024B4CDE5ADC71EAA453BFF5B21 /* Headers */ = {
+		F1B344C33EA5A3A6FC947D7242875D25 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				965D75363630280F2ACFE3CA58550573 /* ASHorizontalScrollView-umbrella.h in Headers */,
+				E07E5DD74EA7AC84DB8AA2B846F4EB4F /* Pods-Connect-iPhoneTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1F0E82E5A3B483D0221D8EF64F9D697 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9EE9C1C8A633A546EEDE647B14E1985 /* Pods-Connect-iPhone-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		141D653E2ED1C0C4C81E0BE9E5C79476 /* Pods-Connect-iPhoneTests */ = {
+		46E44C82B9E326DC121FEA6EBB1CA405 /* Pods-Connect-iPhoneTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 697D61D167993C6085140673B8DB60F1 /* Build configuration list for PBXNativeTarget "Pods-Connect-iPhoneTests" */;
+			buildConfigurationList = 8B25C62492D3B0E83E94D6035445C3DC /* Build configuration list for PBXNativeTarget "Pods-Connect-iPhoneTests" */;
 			buildPhases = (
-				A3CD80C587341A674B0DB4B166A33FBF /* Sources */,
-				EEA1D37CBBE7452F72F01D060B793771 /* Frameworks */,
-				A0325D9A8725A7CC55B71847C6C2B969 /* Headers */,
+				5F3F2BD7E3C9E862DB881BADF881A1DA /* Sources */,
+				51062B31168288C2E5CEBCA5195E70D9 /* Frameworks */,
+				F1B344C33EA5A3A6FC947D7242875D25 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -256,34 +322,16 @@
 			);
 			name = "Pods-Connect-iPhoneTests";
 			productName = "Pods-Connect-iPhoneTests";
-			productReference = 97FC601376C0AEF0611A2A419DDF6648 /* Pods_Connect_iPhoneTests.framework */;
+			productReference = A39FF90299FABEC1D961B40B53AFD1B6 /* Pods_Connect_iPhoneTests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		2F84034679557CA46320C63539CD97B0 /* Pods-Connect-iPhone */ = {
+		4CAD6AD84FAE24AE4744D553E25E9E93 /* ASHorizontalScrollView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6D4DB4B6597EA69369C70EA339EADAA8 /* Build configuration list for PBXNativeTarget "Pods-Connect-iPhone" */;
+			buildConfigurationList = 72EFC9097A009DE439B916EFDA3BE1E0 /* Build configuration list for PBXNativeTarget "ASHorizontalScrollView" */;
 			buildPhases = (
-				E56279B850D927C8F7B8B8450750DA42 /* Sources */,
-				E238E97F7BF1A605637839886F15A0A4 /* Frameworks */,
-				6DF2CE28A6850E0C050B3E4B1CC15F89 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EE4A3B3987209B204F49FF530CBF90D4 /* PBXTargetDependency */,
-			);
-			name = "Pods-Connect-iPhone";
-			productName = "Pods-Connect-iPhone";
-			productReference = C723AB1451ADBD21768483258C1159E1 /* Pods_Connect_iPhone.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		B851E1107F806844151B19F3EA7FE027 /* ASHorizontalScrollView */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 99FE9B679750F7670B11151FE8A7A9A8 /* Build configuration list for PBXNativeTarget "ASHorizontalScrollView" */;
-			buildPhases = (
-				9E824D9240ABE9C5D6DACD825D3871EE /* Sources */,
-				F7974CB980A8AA8EFE70A0A7C9961B76 /* Frameworks */,
-				F9663024B4CDE5ADC71EAA453BFF5B21 /* Headers */,
+				9760701088C4FA6F089B3D7ECA035367 /* Sources */,
+				F5BC1572ABB9F32C6603025240961D3E /* Frameworks */,
+				813C25A09D58DDDF642D3397F247A09D /* Headers */,
 			);
 			buildRules = (
 			);
@@ -291,7 +339,43 @@
 			);
 			name = ASHorizontalScrollView;
 			productName = ASHorizontalScrollView;
-			productReference = BC3F65517283E18E88C0C8CC9227CA70 /* ASHorizontalScrollView.framework */;
+			productReference = 95AFCEFC68CECBE70063005430833921 /* ASHorizontalScrollView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		63277D0777F3826302A178AADAB7123F /* PBWebViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4971601F2750EA38F3BA5007AC3258DD /* Build configuration list for PBXNativeTarget "PBWebViewController" */;
+			buildPhases = (
+				53C65A7742BD33FEAEF5479FB92FB173 /* Sources */,
+				D1D6C0BE6A9DB65623D46DB047507EEF /* Frameworks */,
+				B53E4FB34967AD13556D2AC2D7D3F761 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PBWebViewController;
+			productName = PBWebViewController;
+			productReference = 794C246555F45A3725E4558FFCC8D574 /* PBWebViewController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D9F438E55A68A2DB2F4FC4DBA6FFE37E /* Pods-Connect-iPhone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F494D894EDC609367727DD3EF90B89AD /* Build configuration list for PBXNativeTarget "Pods-Connect-iPhone" */;
+			buildPhases = (
+				DA9C9C0A7449D139AAF7C67AF93F2DB1 /* Sources */,
+				90F7D36221588F92813C01A32A11F29A /* Frameworks */,
+				F1F0E82E5A3B483D0221D8EF64F9D697 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E841E995BBAF89D031C73CE10F045DAD /* PBXTargetDependency */,
+				B46DA90B02973CC54B7A42A571D6AFAE /* PBXTargetDependency */,
+			);
+			name = "Pods-Connect-iPhone";
+			productName = "Pods-Connect-iPhone";
+			productReference = 723AE972C17F92D7FD8F0E518D2FF5EF /* Pods_Connect_iPhone.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -302,14 +386,6 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
-				TargetAttributes = {
-					2F84034679557CA46320C63539CD97B0 = {
-						LastSwiftMigration = 0800;
-					};
-					B851E1107F806844151B19F3EA7FE027 = {
-						LastSwiftMigration = 0800;
-					};
-				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -319,118 +395,73 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = B426E00BE35E69BD4843A58CA30FA563 /* Products */;
+			productRefGroup = C8F8117814C51E563E6710BB1D7E8212 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B851E1107F806844151B19F3EA7FE027 /* ASHorizontalScrollView */,
-				2F84034679557CA46320C63539CD97B0 /* Pods-Connect-iPhone */,
-				141D653E2ED1C0C4C81E0BE9E5C79476 /* Pods-Connect-iPhoneTests */,
+				4CAD6AD84FAE24AE4744D553E25E9E93 /* ASHorizontalScrollView */,
+				63277D0777F3826302A178AADAB7123F /* PBWebViewController */,
+				D9F438E55A68A2DB2F4FC4DBA6FFE37E /* Pods-Connect-iPhone */,
+				46E44C82B9E326DC121FEA6EBB1CA405 /* Pods-Connect-iPhoneTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9E824D9240ABE9C5D6DACD825D3871EE /* Sources */ = {
+		53C65A7742BD33FEAEF5479FB92FB173 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73E4BFDAA5E92A26C32F84F4A7CD187E /* ASHorizontalScrollView-dummy.m in Sources */,
-				22A49EEB8096D5EDE3DA6F69EFD2FB74 /* ASHorizontalScrollView.swift in Sources */,
-				1820755212DD208EBA90474A00297B32 /* Info.plist in Sources */,
+				B78A2A7AB0B8D7234F51AD8009FC155F /* PBWebViewController-dummy.m in Sources */,
+				6ECC269A2A1FCCE1FCDEDCD25F57C6D6 /* PBWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A3CD80C587341A674B0DB4B166A33FBF /* Sources */ = {
+		5F3F2BD7E3C9E862DB881BADF881A1DA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3A6671172ED431AEA5EF279CE0BD243 /* Pods-Connect-iPhoneTests-dummy.m in Sources */,
+				4D24A45A55C8618C781B8751589D4CF9 /* Pods-Connect-iPhoneTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E56279B850D927C8F7B8B8450750DA42 /* Sources */ = {
+		9760701088C4FA6F089B3D7ECA035367 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F31B983A18EF8BDEB18067A230B73151 /* Pods-Connect-iPhone-dummy.m in Sources */,
+				6D3DC55BBD85A2E1B0646898B02CEB4B /* ASHorizontalScrollView-dummy.m in Sources */,
+				402CA035540B6DBB5A030461960FE213 /* ASHorizontalScrollView.swift in Sources */,
+				FD5D8F6699C323B69A0A36D24193BC89 /* Info.plist in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA9C9C0A7449D139AAF7C67AF93F2DB1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F467DAE81379EB2BAD9A9575ADBCBB4C /* Pods-Connect-iPhone-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		EE4A3B3987209B204F49FF530CBF90D4 /* PBXTargetDependency */ = {
+		B46DA90B02973CC54B7A42A571D6AFAE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PBWebViewController;
+			target = 63277D0777F3826302A178AADAB7123F /* PBWebViewController */;
+			targetProxy = 97919FD26E5B8EE950DCBEF59AD611E9 /* PBXContainerItemProxy */;
+		};
+		E841E995BBAF89D031C73CE10F045DAD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ASHorizontalScrollView;
-			target = B851E1107F806844151B19F3EA7FE027 /* ASHorizontalScrollView */;
-			targetProxy = D0D6FF17C7EC30FD9B156F1CEF696B02 /* PBXContainerItemProxy */;
+			target = 4CAD6AD84FAE24AE4744D553E25E9E93 /* ASHorizontalScrollView */;
+			targetProxy = 4D1612640A49CBFFCAEB6C055CB90B8C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		1230BF640BFCAB6747C2FAE0CFA2C317 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = ECEC7F9F46EAA49E350BABC8E08F0A50 /* ASHorizontalScrollView.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/ASHorizontalScrollView/ASHorizontalScrollView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ASHorizontalScrollView/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/ASHorizontalScrollView/ASHorizontalScrollView.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = ASHorizontalScrollView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		2CE56FD32B495107A1E975DDEB141C11 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = ECEC7F9F46EAA49E350BABC8E08F0A50 /* ASHorizontalScrollView.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/ASHorizontalScrollView/ASHorizontalScrollView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ASHorizontalScrollView/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/ASHorizontalScrollView/ASHorizontalScrollView.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = ASHorizontalScrollView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		42287DDF97330524BA3EF220F0276DA6 /* Release */ = {
+		12914D756594D15C6F2CA12FE5F89F1B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -448,112 +479,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		66EFF225DDF4935891062E4B91649E68 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5273DD8BEE9A597D970C4D189FF83480 /* Pods-Connect-iPhone.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-Connect-iPhone/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Connect-iPhone/Pods-Connect-iPhone.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Connect_iPhone;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		A60109447F11A0EAA92AAB37B1CA8337 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5344B3C11202ABC49151638FF16B4184 /* Pods-Connect-iPhoneTests.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-Connect-iPhoneTests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Connect-iPhoneTests/Pods-Connect-iPhoneTests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Connect_iPhoneTests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		AE9439C22469D35336242DD983DB5C5F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -573,16 +499,19 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		DE82B82F385B447B383F429BFF0F3170 /* Release */ = {
+		275D3B9B945B801484701B2E0606C5ED /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25844FDFC1ADE9C3EDEA69EA61F910FB /* Pods-Connect-iPhone.release.xcconfig */;
+			baseConfigurationReference = 732B59A05C5DB2440B98C1D18B9A532F /* ASHorizontalScrollView.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
@@ -591,18 +520,14 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-Connect-iPhone/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/ASHorizontalScrollView/ASHorizontalScrollView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ASHorizontalScrollView/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Connect-iPhone/Pods-Connect-iPhone.modulemap";
+				MODULEMAP_FILE = "Target Support Files/ASHorizontalScrollView/ASHorizontalScrollView.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Connect_iPhone;
+				PRODUCT_NAME = ASHorizontalScrollView;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -612,11 +537,13 @@
 			};
 			name = Release;
 		};
-		E9C738535F111E1BDD6955313B376C9B /* Debug */ = {
+		4FBD8EA090810E397C6485C2C909F7B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 03738C8D9FCE2DEF51AADBF97250BF3A /* Pods-Connect-iPhoneTests.debug.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
@@ -645,41 +572,293 @@
 			};
 			name = Debug;
 		};
+		676A26E9713C0BA23084016DB47320D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5344B3C11202ABC49151638FF16B4184 /* Pods-Connect-iPhoneTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Connect-iPhoneTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Connect-iPhoneTests/Pods-Connect-iPhoneTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Connect_iPhoneTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7BA3651CD3FFFE2E47348532926A1E10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25844FDFC1ADE9C3EDEA69EA61F910FB /* Pods-Connect-iPhone.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Connect-iPhone/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Connect-iPhone/Pods-Connect-iPhone.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Connect_iPhone;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8C2373172CF72E9035FFB0C52C937102 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB90A85E638E0C3537B8EE6BDC144157 /* PBWebViewController.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/PBWebViewController/PBWebViewController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PBWebViewController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/PBWebViewController/PBWebViewController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = PBWebViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		975FDEEC8C8587C6648685109AAAC2E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB90A85E638E0C3537B8EE6BDC144157 /* PBWebViewController.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/PBWebViewController/PBWebViewController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PBWebViewController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/PBWebViewController/PBWebViewController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = PBWebViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C7F8BE6071C13FD445A9095B22D34B27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5273DD8BEE9A597D970C4D189FF83480 /* Pods-Connect-iPhone.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Connect-iPhone/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Connect-iPhone/Pods-Connect-iPhone.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Connect_iPhone;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D42E1C3189E5A6B103E24093DC6C3116 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 732B59A05C5DB2440B98C1D18B9A532F /* ASHorizontalScrollView.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ASHorizontalScrollView/ASHorizontalScrollView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ASHorizontalScrollView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ASHorizontalScrollView/ASHorizontalScrollView.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = ASHorizontalScrollView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E72E7977875C2D251FC62736BBDDC389 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AE9439C22469D35336242DD983DB5C5F /* Debug */,
-				42287DDF97330524BA3EF220F0276DA6 /* Release */,
+				12914D756594D15C6F2CA12FE5F89F1B /* Debug */,
+				E72E7977875C2D251FC62736BBDDC389 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		697D61D167993C6085140673B8DB60F1 /* Build configuration list for PBXNativeTarget "Pods-Connect-iPhoneTests" */ = {
+		4971601F2750EA38F3BA5007AC3258DD /* Build configuration list for PBXNativeTarget "PBWebViewController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E9C738535F111E1BDD6955313B376C9B /* Debug */,
-				A60109447F11A0EAA92AAB37B1CA8337 /* Release */,
+				975FDEEC8C8587C6648685109AAAC2E7 /* Debug */,
+				8C2373172CF72E9035FFB0C52C937102 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6D4DB4B6597EA69369C70EA339EADAA8 /* Build configuration list for PBXNativeTarget "Pods-Connect-iPhone" */ = {
+		72EFC9097A009DE439B916EFDA3BE1E0 /* Build configuration list for PBXNativeTarget "ASHorizontalScrollView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				66EFF225DDF4935891062E4B91649E68 /* Debug */,
-				DE82B82F385B447B383F429BFF0F3170 /* Release */,
+				D42E1C3189E5A6B103E24093DC6C3116 /* Debug */,
+				275D3B9B945B801484701B2E0606C5ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		99FE9B679750F7670B11151FE8A7A9A8 /* Build configuration list for PBXNativeTarget "ASHorizontalScrollView" */ = {
+		8B25C62492D3B0E83E94D6035445C3DC /* Build configuration list for PBXNativeTarget "Pods-Connect-iPhoneTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1230BF640BFCAB6747C2FAE0CFA2C317 /* Debug */,
-				2CE56FD32B495107A1E975DDEB141C11 /* Release */,
+				4FBD8EA090810E397C6485C2C909F7B1 /* Debug */,
+				676A26E9713C0BA23084016DB47320D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F494D894EDC609367727DD3EF90B89AD /* Build configuration list for PBXNativeTarget "Pods-Connect-iPhone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7F8BE6071C13FD445A9095B22D34B27 /* Debug */,
+				7BA3651CD3FFFE2E47348532926A1E10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
