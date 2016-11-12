@@ -85,7 +85,9 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/ASHorizontalScrollView/ASHorizontalScrollView.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/PBWebViewController/PBWebViewController.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/ASHorizontalScrollView/ASHorizontalScrollView.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/PBWebViewController/PBWebViewController.framework"
 fi
