@@ -12,6 +12,10 @@ import Speech
 import CoreData
 import ASHorizontalScrollView
 
+private struct Constants {
+    static let cellIdMessageTTS = "MessageCellTTS"
+    static let cellIdMessageSTT = "MessageCellSTT"
+}
 
 class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeechRecognizerDelegate,
                         UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
@@ -31,6 +35,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     let audioEngine = AVAudioEngine()
     let kCellHeight:CGFloat = 30.0
     var longGesture: UILongPressGestureRecognizer = UILongPressGestureRecognizer()
+    var messages = [Message]()
     
     // Create an empty array of LogItem's
     var phrases = [NSManagedObject]()
@@ -46,7 +51,9 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         quickResponseTableView.delegate = self
         quickResponseTableView.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
         quickResponseTableView.isScrollEnabled = false
-        
+        quickResponseTableView.separatorColor = UIColor.clear
+        coversationTableView.separatorColor = UIColor.clear
+        coversationTableView.allowsSelection = false
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         let managedContext = appDelegate.managedObjectContext
@@ -180,7 +187,12 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     }
     
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
-        
+        let message = Message(tts: true, text: self.message.text!)
+        messages.append(message)
+        self.coversationTableView.reloadData()
+        self.message.text = ""
+        let index = IndexPath(row: messages.count - 1, section: 0)
+        self.coversationTableView.scrollToRow(at: index, at: .bottom, animated: true)
         print("finished")
     }
 
@@ -204,6 +216,12 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
             } catch {
                 print("audioSession properties weren't set because of an error.")
             }
+            let message = Message(tts: false, text: self.message.text!)
+            messages.append(message)
+            self.coversationTableView.reloadData()
+            self.message.text = ""
+            let index = IndexPath(row: messages.count - 1, section: 0)
+            self.coversationTableView.scrollToRow(at: index, at: .bottom, animated: true)
         } else {
             startRecordingSpeech()
         }
@@ -344,41 +362,55 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "CellPortrait")
 
-        
-        if (cell == nil) {
-            cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "CellPortrait")
-            let horizontalScrollView:ASHorizontalScrollView = ASHorizontalScrollView(frame:CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: kCellHeight))
-            
-            horizontalScrollView.miniAppearPxOfLastItem = 10
-            horizontalScrollView.uniformItemSize = CGSize(width: 100, height: 50)
-            print("phrases: \(phrases.count)")
-            for i in 0..<phrases.count {
-                let button = UIButton(frame: CGRect.zero)
-                button.backgroundColor = UIColor.lightGray
-                let title = phrases[i].value(forKey: "text") as! String
-                button.layer.cornerRadius = 10.0
-                button.clipsToBounds = true
-                button.layer.masksToBounds = true
-                button.setTitle(title as String?, for: UIControlState.normal)
-                button.titleLabel?.textColor = UIColor.white
-                button.titleLabel!.numberOfLines = 0
-                button.titleLabel!.adjustsFontSizeToFitWidth = true
-                horizontalScrollView.addItem(button)
-                button.addTarget(self, action: #selector(HomeViewController.tapQuickResponseButton), for: .touchUpInside)
-                button.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(HomeViewController.longPressQuickResponseButton)))
+        if (tableView.isEqual(self.coversationTableView)) {
+            let message = messages[indexPath.row]
+            let isTTS = message.tts
+            let content = message.text
+            if (isTTS) {
+                let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdMessageTTS, for: indexPath) as! ConversationTableViewCell
+                cell.configCell(message: content)
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdMessageSTT, for: indexPath) as! ConversationTableViewCell
+                cell.configCell(message: content)
+                return cell
             }
+        } else if (tableView.isEqual(self.quickResponseTableView)) {
+            print(indexPath.count)
+            var cell = tableView.dequeueReusableCell(withIdentifier: "CellPortrait")
+            if (cell == nil) {
+                cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "CellPortrait")
+                let horizontalScrollView:ASHorizontalScrollView = ASHorizontalScrollView(frame:CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: kCellHeight))
+                
+                horizontalScrollView.miniAppearPxOfLastItem = 10
+                horizontalScrollView.uniformItemSize = CGSize(width: 100, height: 50)
+                print("phrases: \(phrases.count)")
+                for i in 0..<phrases.count {
+                    let button = UIButton(frame: CGRect.zero)
+                    button.backgroundColor = UIColor.lightGray
+                    let title = phrases[i].value(forKey: "text") as! String
+                    button.layer.cornerRadius = 10.0
+                    button.clipsToBounds = true
+                    button.layer.masksToBounds = true
+                    button.setTitle(title as String?, for: UIControlState.normal)
+                    button.titleLabel?.textColor = UIColor.white
+                    button.titleLabel!.numberOfLines = 0
+                    button.titleLabel!.adjustsFontSizeToFitWidth = true
+                    horizontalScrollView.addItem(button)
+                    button.addTarget(self, action: #selector(HomeViewController.tapQuickResponseButton), for: .touchUpInside)
+                    button.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(HomeViewController.longPressQuickResponseButton)))
+                }
+                
+                cell?.contentView.addSubview(horizontalScrollView)
+                horizontalScrollView.translatesAutoresizingMaskIntoConstraints = false
+                cell?.contentView.addConstraint(NSLayoutConstraint(item: horizontalScrollView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: kCellHeight))
+                cell?.contentView.addConstraint(NSLayoutConstraint(item: horizontalScrollView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: cell!.contentView, attribute: NSLayoutAttribute.width, multiplier: 1, constant: 0))
             
-            cell?.contentView.addSubview(horizontalScrollView)
-            horizontalScrollView.translatesAutoresizingMaskIntoConstraints = false
-            cell?.contentView.addConstraint(NSLayoutConstraint(item: horizontalScrollView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: kCellHeight))
-            cell?.contentView.addConstraint(NSLayoutConstraint(item: horizontalScrollView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: cell!.contentView, attribute: NSLayoutAttribute.width, multiplier: 1, constant: 0))
-            
+            }
+            return cell!
         }
-        
-        return cell!
-        
+        return tableView.dequeueReusableCell(withIdentifier: "CellPortrait")!
 
     }
     
@@ -388,12 +420,24 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if (tableView.isEqual(self.coversationTableView)) {
+            return messages.count
+            
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return kCellHeight
+        if (tableView.isEqual(self.coversationTableView)) {
+            return 85
+            
+        } else {
+            return kCellHeight
+        }
     }
+    
+    
     
 
     

@@ -10,6 +10,8 @@ import UIKit
 
 class ConversationTableViewCell: UITableViewCell {
 
+    
+    @IBOutlet weak var messageContent: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +22,8 @@ class ConversationTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    func configCell(message: String) {
+        self.messageContent.text = message
+    }
 }
