@@ -1,0 +1,15 @@
+PODS:
+  - ASHorizontalScrollView (1.2)
+  - PBWebViewController (0.5.0)
+
+DEPENDENCIES:
+  - ASHorizontalScrollView (~> 1.2)
+  - PBWebViewController (~> 0.3)
+
+SPEC CHECKSUMS:
+  ASHorizontalScrollView: 90287d2e6544cfc81d33f7bf91b6af85ec62f9a5
+  PBWebViewController: 6537990155ca850fb8d0563efbc12becebc953ef
+
+PODFILE CHECKSUM: 3f7fd758666033e5a4e4c1a7223bc53d17ca9f93
+
+COCOAPODS: 1.1.1
