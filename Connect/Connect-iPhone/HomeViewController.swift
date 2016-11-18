@@ -13,14 +13,15 @@ import CoreData
 import ASHorizontalScrollView
 
 
-class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeechRecognizerDelegate, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeechRecognizerDelegate,
+                        UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
 
     
     // IBOutlets - are objects dragged from the UI
-    @IBOutlet weak var conversation: UIView!
     @IBOutlet weak var message: UITextField!
     @IBOutlet weak var add: UIButton!
     @IBOutlet weak var quickResponseTableView: UITableView!
+    @IBOutlet weak var coversationTableView: UITableView!
     
     //instance variables
     var tField: UITextField!
@@ -41,7 +42,6 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     // put anything you want to see here, so it shows up once the view loads
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         quickResponseTableView.dataSource = self
         quickResponseTableView.delegate = self
         quickResponseTableView.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
@@ -180,6 +180,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     }
     
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        
         print("finished")
     }
 
@@ -344,6 +345,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "CellPortrait")
+
         
         if (cell == nil) {
             cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "CellPortrait")
@@ -372,9 +374,11 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
             horizontalScrollView.translatesAutoresizingMaskIntoConstraints = false
             cell?.contentView.addConstraint(NSLayoutConstraint(item: horizontalScrollView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: kCellHeight))
             cell?.contentView.addConstraint(NSLayoutConstraint(item: horizontalScrollView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: cell!.contentView, attribute: NSLayoutAttribute.width, multiplier: 1, constant: 0))
+            
         }
+        
         return cell!
-
+        
 
     }
     

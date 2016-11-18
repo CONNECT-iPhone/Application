@@ -13,6 +13,7 @@
 		212ECFD21D924C0C00DE702D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 212ECFD01D924C0C00DE702D /* LaunchScreen.storyboard */; };
 		212ECFDD1D924C0C00DE702D /* Connect_iPhoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212ECFDC1D924C0C00DE702D /* Connect_iPhoneTests.swift */; };
 		2158B3631DD69323002D2210 /* SmartSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2158B3621DD69323002D2210 /* SmartSign.swift */; };
+		2158B3E01DDED171002D2210 /* ConversationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2158B3DF1DDED171002D2210 /* ConversationTableViewCell.swift */; };
 		217EB5CB1DD11E200021DE52 /* Phrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217EB5CA1DD11E200021DE52 /* Phrase.swift */; };
 		2182552A1DC70080006C64B9 /* Connect-iPhone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 218255281DC70080006C64B9 /* Connect-iPhone.xcdatamodeld */; };
 		21B899E71D99BAAC002545FD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B899E61D99BAAC002545FD /* HomeViewController.swift */; };
@@ -41,6 +42,7 @@
 		212ECFDC1D924C0C00DE702D /* Connect_iPhoneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connect_iPhoneTests.swift; sourceTree = "<group>"; };
 		212ECFDE1D924C0C00DE702D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2158B3621DD69323002D2210 /* SmartSign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SmartSign.swift; path = ../SmartSign.swift; sourceTree = "<group>"; };
+		2158B3DF1DDED171002D2210 /* ConversationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCell.swift; sourceTree = "<group>"; };
 		217EB5CA1DD11E200021DE52 /* Phrase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Phrase.swift; sourceTree = "<group>"; };
 		218255291DC70080006C64B9 /* Connect-iPhone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Connect-iPhone.xcdatamodel"; sourceTree = "<group>"; };
 		21B899E61D99BAAC002545FD /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				21B899E61D99BAAC002545FD /* HomeViewController.swift */,
 				218255281DC70080006C64B9 /* Connect-iPhone.xcdatamodeld */,
 				217EB5CA1DD11E200021DE52 /* Phrase.swift */,
+				2158B3DF1DDED171002D2210 /* ConversationTableViewCell.swift */,
 			);
 			path = "Connect-iPhone";
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 			files = (
 				2182552A1DC70080006C64B9 /* Connect-iPhone.xcdatamodeld in Sources */,
 				212ECFC51D924C0C00DE702D /* AppDelegate.swift in Sources */,
+				2158B3E01DDED171002D2210 /* ConversationTableViewCell.swift in Sources */,
 				2158B3631DD69323002D2210 /* SmartSign.swift in Sources */,
 				217EB5CB1DD11E200021DE52 /* Phrase.swift in Sources */,
 				21B899E71D99BAAC002545FD /* HomeViewController.swift in Sources */,
