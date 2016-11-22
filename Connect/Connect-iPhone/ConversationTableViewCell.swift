@@ -11,12 +11,15 @@ import UIKit
 class ConversationTableViewCell: UITableViewCell {
 
     
+    @IBOutlet weak var view: UIView!
     @IBOutlet weak var messageContent: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -24,6 +27,6 @@ class ConversationTableViewCell: UITableViewCell {
     }
     
     func configCell(message: String) {
-        self.messageContent.text = message
+        self.messageContent.text = message as String
     }
 }

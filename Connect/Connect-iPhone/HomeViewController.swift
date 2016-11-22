@@ -34,11 +34,11 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     var recognitionTask: SFSpeechRecognitionTask?
     let audioEngine = AVAudioEngine()
     let kCellHeight:CGFloat = 30.0
-    var longGesture: UILongPressGestureRecognizer = UILongPressGestureRecognizer()
     var messages = [Message]()
     
     // Create an empty array of LogItem's
     var phrases = [NSManagedObject]()
+    var phrasesArray = [String]()
     // Retreive the managedObjectContext from AppDelegate
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
 
@@ -54,21 +54,11 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         quickResponseTableView.separatorColor = UIColor.clear
         coversationTableView.separatorColor = UIColor.clear
         coversationTableView.allowsSelection = false
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        coversationTableView.isUserInteractionEnabled = true
         
-        let managedContext = appDelegate.managedObjectContext
         
-        //2
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Phrase")
+        fetchData()
         
-        //3
-        do {
-            let results =
-                try managedContext.fetch(fetchRequest)
-            phrases = results as! [NSManagedObject]
-        } catch let error as NSError {
-            print("Could not fetch \(error), \(error.userInfo)")
-        }
         self.navigationItem.title = "Connect"
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white, NSFontAttributeName: UIFont(name: "Avenir Next Medium", size: 20)!]
         
@@ -109,20 +99,36 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         
 
         
-        longGesture = UILongPressGestureRecognizer(target: self, action: #selector(HomeViewController.longPressQuickResponseButton(sender:))) //Long function will call when user long press on button.
         let smartSign = UIMenuItem(title: "SmartSign", action: #selector(toSmartSign))
         UIMenuController.shared.menuItems = [smartSign]
         // Do any additional setup after loading the view.
     }
     
+    func fetchData() {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Phrase")
+        
+        //3
+        do {
+            let results = try self.managedObjectContext.fetch(fetchRequest)
+            phrases = results as! [NSManagedObject]
+            for phrase in phrases {
+                phrasesArray.append(phrase.value(forKey: "text") as! String)
+            }
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+    }
     
     func toSmartSign() {
         if let range = self.message.selectedTextRange, let selectedText = self.message.text(in: range) {
             print(selectedText)
-            let url = "https://www.youtube.com/watch?v=77pnVFLkUjM"
-            SmartSign.openUrl(urlString: url, sender: self)
+            
+            let url = "https://dictionary-smartsign.rhcloud.com/videos?keywords=\(selectedText)"
+            //            let youtubeURL = "http://www.youtube.com/embed/\(data[0]["id"])?rel=0&showinfo=0&controls=0&autoplay=1"
+//            SmartSign.openUrl(urlString: url, sender: self)
         }
     }
+    
     
 
     override func didReceiveMemoryWarning() {
@@ -145,22 +151,6 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     }
     
     
-    // action triggered when long press any of the quick response buttons - edit or delete a quick response
-    func longPressQuickResponseButton(sender: UIButton) {
-        let alert = UIAlertController(title: "Edit/Delete Quick Response", message: "Edit text field to edit quick response and tap edit, or tap delete to delete quick response", preferredStyle: .alert)
-        
-        alert.addTextField(configurationHandler: configurationTextField)
-        alert.addAction(UIAlertAction(title: "Edit", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Delete", style: .default, handler:{ (UIAlertAction) in
-            print("Done !!")
-            
-            print("Item : \(self.tField.text)")
-        }))
-        self.present(alert, animated: true, completion: {
-            print("completion block")
-        })
-
-    }
     
     // action triggered when right nav bar icon is tapped
     func textToSpeechTapped(_ sender :UIBarButtonItem) {
@@ -236,7 +226,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         
         let audioSession = AVAudioSession.sharedInstance()
         do {
-            try audioSession.setCategory(AVAudioSessionCategoryRecord)
+            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
             try audioSession.setMode(AVAudioSessionModeMeasurement)
             try audioSession.setActive(true, with: .notifyOthersOnDeactivation)
         } catch {
@@ -340,12 +330,67 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
             try managedContext.save()
             //5
             phrases.append(phrase)
-            
-
+            phrasesArray.append(name)
+            self.quickResponseTableView.reloadData()
             
         } catch let error as NSError  {
             print("Could not save \(error), \(error.userInfo)")
         }
+    }
+    
+    // action triggered when long press any of the quick response buttons - edit or delete a quick response
+    func longPressQuickResponseButton(sender: UILongPressGestureRecognizer) {
+        let alert = UIAlertController(title: "Edit/Delete Quick Response", message: "Edit text field to edit quick response and tap edit, or tap delete to delete quick response", preferredStyle: .alert)
+        
+        if (sender.state == UIGestureRecognizerState.began){
+            print("began")
+            print((sender.view?.subviews.first as! UILabel).text!)
+        }
+        alert.addTextField(configurationHandler: configurationTextField)
+        alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { (UIAlertAction) in
+            let phrase = (sender.view?.subviews.first as! UILabel).text!
+            let new = alert.textFields!.first?.text!
+            self.updatePhrase(phrase: phrase, new: new!)
+        }))
+        alert.addAction(UIAlertAction(title: "Delete", style: .default, handler:{ (UIAlertAction) in
+            let phrase = (sender.view?.subviews.first as! UILabel).text!
+            self.deletePhrase(phrase: phrase)
+        }))
+        self.present(alert, animated: true, completion: {
+            print("completion block")
+        })
+        
+    }
+
+    func deletePhrase(phrase: String) {
+        let i = phrasesArray.index(of: phrase)
+        let toDelete = phrases[i!]
+        self.managedObjectContext.delete(toDelete)
+        
+        do {
+            try self.managedObjectContext.save()
+            phrasesArray.remove(at: i!)
+            self.quickResponseTableView.reloadData()
+        } catch {
+            let saveError = error as NSError
+            print(saveError)
+        }
+    }
+    
+    func updatePhrase(phrase: String, new: String) {
+        let i = phrasesArray.index(of: phrase)
+        let toUpdate = phrases[i!] 
+        toUpdate.setValue(new, forKey: "text")
+        
+        do {
+            try toUpdate.managedObjectContext?.save()
+            phrasesArray[i!] = new
+            self.quickResponseTableView.reloadData()
+        } catch {
+            let saveError = error as NSError
+            print(saveError)
+        }
+        
     }
     
     func configurationTextField(_ textField: UITextField!)
@@ -370,45 +415,44 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
             if (isTTS) {
                 let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdMessageTTS, for: indexPath) as! ConversationTableViewCell
                 cell.configCell(message: content)
+                self.roundCorners(field: cell.view, corners: [.bottomLeft, .bottomRight, .topLeft])
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdMessageSTT, for: indexPath) as! ConversationTableViewCell
+                self.roundCorners(field: cell.view, corners: [.bottomLeft, .bottomRight, .topRight])
                 cell.configCell(message: content)
                 return cell
             }
         } else if (tableView.isEqual(self.quickResponseTableView)) {
-            print(indexPath.count)
-            var cell = tableView.dequeueReusableCell(withIdentifier: "CellPortrait")
-            if (cell == nil) {
-                cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "CellPortrait")
-                let horizontalScrollView:ASHorizontalScrollView = ASHorizontalScrollView(frame:CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: kCellHeight))
-                
-                horizontalScrollView.miniAppearPxOfLastItem = 10
-                horizontalScrollView.uniformItemSize = CGSize(width: 100, height: 50)
-                print("phrases: \(phrases.count)")
-                for i in 0..<phrases.count {
-                    let button = UIButton(frame: CGRect.zero)
-                    button.backgroundColor = UIColor.lightGray
-                    let title = phrases[i].value(forKey: "text") as! String
-                    button.layer.cornerRadius = 10.0
-                    button.clipsToBounds = true
-                    button.layer.masksToBounds = true
-                    button.setTitle(title as String?, for: UIControlState.normal)
-                    button.titleLabel?.textColor = UIColor.white
-                    button.titleLabel!.numberOfLines = 0
-                    button.titleLabel!.adjustsFontSizeToFitWidth = true
-                    horizontalScrollView.addItem(button)
-                    button.addTarget(self, action: #selector(HomeViewController.tapQuickResponseButton), for: .touchUpInside)
-                    button.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(HomeViewController.longPressQuickResponseButton)))
-                }
-                
-                cell?.contentView.addSubview(horizontalScrollView)
-                horizontalScrollView.translatesAutoresizingMaskIntoConstraints = false
-                cell?.contentView.addConstraint(NSLayoutConstraint(item: horizontalScrollView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: kCellHeight))
-                cell?.contentView.addConstraint(NSLayoutConstraint(item: horizontalScrollView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: cell!.contentView, attribute: NSLayoutAttribute.width, multiplier: 1, constant: 0))
+            let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "CellPortrait")
+            let horizontalScrollView:ASHorizontalScrollView = ASHorizontalScrollView(frame:CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: kCellHeight))
             
+            horizontalScrollView.miniAppearPxOfLastItem = 10
+            horizontalScrollView.uniformItemSize = CGSize(width: 100, height: 50)
+            print("number of phrases: \(phrasesArray.count)")
+            for i in 0..<phrasesArray.count {
+                let button = UIButton(frame: CGRect.zero)
+                button.backgroundColor = UIColor.lightGray
+                let title = phrasesArray[i]
+                button.setTitle(title as String?, for: .normal)
+                button.titleLabel?.textColor = UIColor.white
+                button.titleLabel!.numberOfLines = 0
+                button.titleLabel!.adjustsFontSizeToFitWidth = true
+                horizontalScrollView.addItem(button)
+                let view = horizontalScrollView.items.last
+                view?.layer.cornerRadius = 20
+                view?.layer.masksToBounds = true
+                button.addTarget(self, action: #selector(HomeViewController.tapQuickResponseButton), for: .touchUpInside)
+                button.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(HomeViewController.longPressQuickResponseButton)))
             }
-            return cell!
+            
+            cell.contentView.addSubview(horizontalScrollView)
+            horizontalScrollView.translatesAutoresizingMaskIntoConstraints = false
+            cell.contentView.addConstraint(NSLayoutConstraint(item: horizontalScrollView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: kCellHeight))
+            cell.contentView.addConstraint(NSLayoutConstraint(item: horizontalScrollView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: cell.contentView, attribute: NSLayoutAttribute.width, multiplier: 1, constant: 0))
+            
+            
+            return cell
         }
         return tableView.dequeueReusableCell(withIdentifier: "CellPortrait")!
 
@@ -430,14 +474,23 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if (tableView.isEqual(self.coversationTableView)) {
-            return 85
+            return 45
+            
             
         } else {
             return kCellHeight
         }
     }
     
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 45
+    }
     
+    func roundCorners(field: UIView!, corners: UIRectCorner) {
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = UIBezierPath(roundedRect: field.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: 15, height: 15)).cgPath
+        field.layer.mask = maskLayer
+    }
     
 
     
