@@ -199,7 +199,7 @@
 				TargetAttributes = {
 					212ECFC01D924C0C00DE702D = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = UKKPQBWHSK;
+						DevelopmentTeam = 5BFTDN6R4X;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
@@ -492,7 +492,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = UKKPQBWHSK;
+				DEVELOPMENT_TEAM = 5BFTDN6R4X;
 				INFOPLIST_FILE = "Connect-iPhone/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -510,7 +510,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = UKKPQBWHSK;
+				DEVELOPMENT_TEAM = 5BFTDN6R4X;
 				INFOPLIST_FILE = "Connect-iPhone/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

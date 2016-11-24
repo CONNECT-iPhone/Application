@@ -16,7 +16,7 @@ class ConversationTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
+
     }
 
     
@@ -28,5 +28,12 @@ class ConversationTableViewCell: UITableViewCell {
     
     func configCell(message: String) {
         self.messageContent.text = message as String
+        self.view.frame.size.width = messageContent.frame.size.width + 10
     }
+    
+//    func roundCorners(field: UIView!, corners: UIRectCorner) {
+//        let maskLayer = CAShapeLayer()
+//        maskLayer.path = UIBezierPath(roundedRect: field.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: 15, height: 15)).cgPath
+//        field.layer.mask = maskLayer
+//    }
 }

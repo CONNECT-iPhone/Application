@@ -303,7 +303,13 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Add", style: .default, handler:{ (UIAlertAction) in
             let textField = alert.textFields!.first
-            self.savePhrase(name: textField!.text!)
+            if (textField?.text == nil || (textField?.text?.isEmpty)!) {
+                let error = UIAlertController(title: "Error", message: "Please enter a text to be saved", preferredStyle: .alert)
+                error.addAction(UIKit.UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                self.savePhrase(name: textField!.text!)
+            }
         }))
         self.present(alert, animated: true, completion: nil)
 
@@ -350,7 +356,14 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { (UIAlertAction) in
             let phrase = (sender.view?.subviews.first as! UILabel).text!
             let new = alert.textFields!.first?.text!
-            self.updatePhrase(phrase: phrase, new: new!)
+            if (new == nil || (new?.isEmpty)!) {
+                let error = UIAlertController(title: "Error", message: "Please enter a text to be saved", preferredStyle: .alert)
+                error.addAction(UIKit.UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+
+            } else {
+                self.updatePhrase(phrase: phrase, new: new!)
+            }
         }))
         alert.addAction(UIAlertAction(title: "Delete", style: .default, handler:{ (UIAlertAction) in
             let phrase = (sender.view?.subviews.first as! UILabel).text!
@@ -415,11 +428,11 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
             if (isTTS) {
                 let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdMessageTTS, for: indexPath) as! ConversationTableViewCell
                 cell.configCell(message: content)
-                self.roundCorners(field: cell.view, corners: [.bottomLeft, .bottomRight, .topLeft])
+                //self.roundCorners(field: cell.view, corners: [.bottomLeft, .bottomRight, .topLeft])
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdMessageSTT, for: indexPath) as! ConversationTableViewCell
-                self.roundCorners(field: cell.view, corners: [.bottomLeft, .bottomRight, .topRight])
+                //self.roundCorners(field: cell.view, corners: [.bottomLeft, .bottomRight, .topRight])
                 cell.configCell(message: content)
                 return cell
             }
@@ -474,7 +487,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if (tableView.isEqual(self.coversationTableView)) {
-            return 45
+            return UITableViewAutomaticDimension
             
             
         } else {
@@ -486,11 +499,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         return 45
     }
     
-    func roundCorners(field: UIView!, corners: UIRectCorner) {
-        let maskLayer = CAShapeLayer()
-        maskLayer.path = UIBezierPath(roundedRect: field.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: 15, height: 15)).cgPath
-        field.layer.mask = maskLayer
-    }
+    
     
 
     
