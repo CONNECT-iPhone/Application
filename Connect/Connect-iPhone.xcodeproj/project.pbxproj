@@ -12,7 +12,13 @@
 		212ECFCF1D924C0C00DE702D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 212ECFCE1D924C0C00DE702D /* Assets.xcassets */; };
 		212ECFD21D924C0C00DE702D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 212ECFD01D924C0C00DE702D /* LaunchScreen.storyboard */; };
 		212ECFDD1D924C0C00DE702D /* Connect_iPhoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212ECFDC1D924C0C00DE702D /* Connect_iPhoneTests.swift */; };
+		214BE5271DE6CAFB00439726 /* SmartSignLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214BE5261DE6CAFB00439726 /* SmartSignLabel.swift */; };
+		214BE5291DE7C79300439726 /* SmartSignMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214BE5281DE7C79300439726 /* SmartSignMenuItem.swift */; };
+		214BE5371DEA412500439726 /* SmartSignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214BE5361DEA412500439726 /* SmartSignViewController.swift */; };
+		214BE5391DEA45D500439726 /* SmartSignTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214BE5381DEA45D500439726 /* SmartSignTableViewCell.swift */; };
 		2158B3631DD69323002D2210 /* SmartSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2158B3621DD69323002D2210 /* SmartSign.swift */; };
+		2158B3E01DDED171002D2210 /* ConversationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2158B3DF1DDED171002D2210 /* ConversationTableViewCell.swift */; };
+		2158B3E21DDEFAD4002D2210 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2158B3E11DDEFAD4002D2210 /* Message.swift */; };
 		217EB5CB1DD11E200021DE52 /* Phrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217EB5CA1DD11E200021DE52 /* Phrase.swift */; };
 		2182552A1DC70080006C64B9 /* Connect-iPhone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 218255281DC70080006C64B9 /* Connect-iPhone.xcdatamodeld */; };
 		21B899E71D99BAAC002545FD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B899E61D99BAAC002545FD /* HomeViewController.swift */; };
@@ -40,7 +46,13 @@
 		212ECFD81D924C0C00DE702D /* Connect-iPhoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Connect-iPhoneTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		212ECFDC1D924C0C00DE702D /* Connect_iPhoneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connect_iPhoneTests.swift; sourceTree = "<group>"; };
 		212ECFDE1D924C0C00DE702D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2158B3621DD69323002D2210 /* SmartSign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmartSign.swift; sourceTree = "<group>"; };
+		214BE5261DE6CAFB00439726 /* SmartSignLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmartSignLabel.swift; sourceTree = "<group>"; };
+		214BE5281DE7C79300439726 /* SmartSignMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmartSignMenuItem.swift; sourceTree = "<group>"; };
+		214BE5361DEA412500439726 /* SmartSignViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmartSignViewController.swift; sourceTree = "<group>"; };
+		214BE5381DEA45D500439726 /* SmartSignTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmartSignTableViewCell.swift; sourceTree = "<group>"; };
+		2158B3621DD69323002D2210 /* SmartSign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SmartSign.swift; path = ../SmartSign.swift; sourceTree = "<group>"; };
+		2158B3DF1DDED171002D2210 /* ConversationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCell.swift; sourceTree = "<group>"; };
+		2158B3E11DDEFAD4002D2210 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		217EB5CA1DD11E200021DE52 /* Phrase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Phrase.swift; sourceTree = "<group>"; };
 		218255291DC70080006C64B9 /* Connect-iPhone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Connect-iPhone.xcdatamodel"; sourceTree = "<group>"; };
 		21B899E61D99BAAC002545FD /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -75,7 +87,6 @@
 		212ECFB81D924C0C00DE702D = {
 			isa = PBXGroup;
 			children = (
-				2158B3621DD69323002D2210 /* SmartSign.swift */,
 				212ECFC31D924C0C00DE702D /* Connect-iPhone */,
 				212ECFDB1D924C0C00DE702D /* Connect-iPhoneTests */,
 				212ECFC21D924C0C00DE702D /* Products */,
@@ -96,6 +107,7 @@
 		212ECFC31D924C0C00DE702D /* Connect-iPhone */ = {
 			isa = PBXGroup;
 			children = (
+				2158B3621DD69323002D2210 /* SmartSign.swift */,
 				212ECFC41D924C0C00DE702D /* AppDelegate.swift */,
 				212ECFC81D924C0C00DE702D /* Main.storyboard */,
 				212ECFCE1D924C0C00DE702D /* Assets.xcassets */,
@@ -104,6 +116,12 @@
 				21B899E61D99BAAC002545FD /* HomeViewController.swift */,
 				218255281DC70080006C64B9 /* Connect-iPhone.xcdatamodeld */,
 				217EB5CA1DD11E200021DE52 /* Phrase.swift */,
+				2158B3DF1DDED171002D2210 /* ConversationTableViewCell.swift */,
+				2158B3E11DDEFAD4002D2210 /* Message.swift */,
+				214BE5261DE6CAFB00439726 /* SmartSignLabel.swift */,
+				214BE5281DE7C79300439726 /* SmartSignMenuItem.swift */,
+				214BE5361DEA412500439726 /* SmartSignViewController.swift */,
+				214BE5381DEA45D500439726 /* SmartSignTableViewCell.swift */,
 			);
 			path = "Connect-iPhone";
 			sourceTree = "<group>";
@@ -188,12 +206,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = FiveBox;
 				TargetAttributes = {
 					212ECFC01D924C0C00DE702D = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = UKKPQBWHSK;
+						DevelopmentTeam = 5BFTDN6R4X;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
@@ -341,11 +359,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				214BE5371DEA412500439726 /* SmartSignViewController.swift in Sources */,
 				2182552A1DC70080006C64B9 /* Connect-iPhone.xcdatamodeld in Sources */,
+				214BE5271DE6CAFB00439726 /* SmartSignLabel.swift in Sources */,
 				212ECFC51D924C0C00DE702D /* AppDelegate.swift in Sources */,
+				2158B3E01DDED171002D2210 /* ConversationTableViewCell.swift in Sources */,
 				2158B3631DD69323002D2210 /* SmartSign.swift in Sources */,
+				214BE5391DEA45D500439726 /* SmartSignTableViewCell.swift in Sources */,
 				217EB5CB1DD11E200021DE52 /* Phrase.swift in Sources */,
 				21B899E71D99BAAC002545FD /* HomeViewController.swift in Sources */,
+				214BE5291DE7C79300439726 /* SmartSignMenuItem.swift in Sources */,
+				2158B3E21DDEFAD4002D2210 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,13 +505,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C50BE5033DF26324966F94C6 /* Pods-Connect-iPhone.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = UKKPQBWHSK;
+				DEVELOPMENT_TEAM = 5BFTDN6R4X;
 				INFOPLIST_FILE = "Connect-iPhone/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Connect.Connect-iPhone";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.whyHammoud.Connect-iPhone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -498,15 +523,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CFD7BF9E0C698060D24A88F7 /* Pods-Connect-iPhone.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = UKKPQBWHSK;
+				DEVELOPMENT_TEAM = 5BFTDN6R4X;
 				INFOPLIST_FILE = "Connect-iPhone/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Connect.Connect-iPhone";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.whyHammoud.Connect-iPhone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

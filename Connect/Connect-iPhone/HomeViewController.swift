@@ -3,7 +3,7 @@
 //  Connect-iPhone
 //
 //  Created by Youssef Hammoud on 9/26/16.
-//  Copyright © 2016 FiveBox. All rights reserved.
+//  Copyright © 2016 Connect-iPhone. All rights reserved.
 //
 
 import UIKit
@@ -11,31 +11,38 @@ import AVFoundation
 import Speech
 import CoreData
 import ASHorizontalScrollView
+import Alamofire
 
+private struct Constants {
+    static let cellIdMessageTTS = "MessageCellTTS"
+    static let cellIdMessageSTT = "MessageCellSTT"
+}
 
-class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeechRecognizerDelegate, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeechRecognizerDelegate,
+                        UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
 
     
     // IBOutlets - are objects dragged from the UI
-    @IBOutlet weak var conversation: UIView!
     @IBOutlet weak var message: UITextField!
     @IBOutlet weak var add: UIButton!
     @IBOutlet weak var quickResponseTableView: UITableView!
+    @IBOutlet weak var coversationTableView: UITableView!
     
     //instance variables
     var tField: UITextField!
+    let synthesizer = AVSpeechSynthesizer()
     var speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))
     var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     var recognitionTask: SFSpeechRecognitionTask?
     let audioEngine = AVAudioEngine()
     let kCellHeight:CGFloat = 30.0
-    var longGesture: UILongPressGestureRecognizer = UILongPressGestureRecognizer()
+    var messages = [Message]()
     
     // Create an empty array of LogItem's
     var phrases = [NSManagedObject]()
+    var phrasesArray = [String]()
     // Retreive the managedObjectContext from AppDelegate
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
-
 
 
     // put anything you want to see here, so it shows up once the view loads
@@ -46,22 +53,14 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         quickResponseTableView.delegate = self
         quickResponseTableView.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
         quickResponseTableView.isScrollEnabled = false
+        quickResponseTableView.separatorColor = UIColor.clear
+        coversationTableView.separatorColor = UIColor.clear
+        coversationTableView.allowsSelection = false
+        coversationTableView.isUserInteractionEnabled = true
+
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        fetchData()
         
-        let managedContext = appDelegate.managedObjectContext
-        
-        //2
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Phrase")
-        
-        //3
-        do {
-            let results =
-                try managedContext.fetch(fetchRequest)
-            phrases = results as! [NSManagedObject]
-        } catch let error as NSError {
-            print("Could not fetch \(error), \(error.userInfo)")
-        }
         self.navigationItem.title = "Connect"
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white, NSFontAttributeName: UIFont(name: "Avenir Next Medium", size: 20)!]
         
@@ -102,20 +101,68 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         
 
         
-        longGesture = UILongPressGestureRecognizer(target: self, action: #selector(HomeViewController.longPressQuickResponseButton(sender:))) //Long function will call when user long press on button.
-        let smartSign = UIMenuItem(title: "SmartSign", action: #selector(toSmartSign))
-        UIMenuController.shared.menuItems = [smartSign]
-        // Do any additional setup after loading the view.
+                // Do any additional setup after loading the view.
     }
     
-    
-    func toSmartSign() {
-        if let range = self.message.selectedTextRange, let selectedText = self.message.text(in: range) {
-            print(selectedText)
-            let url = "https://www.youtube.com/watch?v=77pnVFLkUjM"
-            SmartSign.openUrl(urlString: url, sender: self)
+    func fetchData() {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Phrase")
+        
+        //3
+        do {
+            let results = try self.managedObjectContext.fetch(fetchRequest)
+            phrases = results as! [NSManagedObject]
+            for phrase in phrases {
+                phrasesArray.append(phrase.value(forKey: "text") as! String)
+            }
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
         }
     }
+    
+    func toSmartSign(sender: UIMenuController) {
+        let smartSignMenu = sender.menuItems?.first as! SmartSignMenuItem
+        let text = smartSignMenu.smartSignText
+        print(text.components(separatedBy: " ").count)
+        if text.components(separatedBy: " ").count > 1 {
+            let optionMenu = UIAlertController(title: nil, message: "Choose word", preferredStyle: .actionSheet)
+            for word in text.components(separatedBy: " ") {
+                optionMenu.addAction(UIAlertAction(title: word, style: .default) { action -> Void in
+                    let url = "https://dictionary-smartsign.rhcloud.com/videos?keywords=\(word)"
+                    Alamofire.request(url)
+                        .responseJSON { response in
+                            let value = (response.result.value as! NSDictionary)
+                            let array = value["data"]
+                            let dict = (array as! Array<Any>) as! [[String:AnyObject]]
+                            let smartSignViewController = self.storyboard?.instantiateViewController(withIdentifier: "smartSignViewController") as! SmartSignViewController
+                            smartSignViewController.dict = dict
+                            smartSignViewController.word = word
+                            self.navigationController?.pushViewController(smartSignViewController, animated: true)
+                            
+                            
+                    }
+                })
+            }
+            self.present(optionMenu, animated: true, completion: nil)
+        } else {
+            let url = "https://dictionary-smartsign.rhcloud.com/videos?keywords=\(smartSignMenu.smartSignText)"
+            Alamofire.request(url)
+                .responseJSON { response in
+                    let value = (response.result.value as! NSDictionary)
+                    let array = value["data"]
+                    let dict = (array as! Array<Any>) as! [[String:AnyObject]]
+                    let smartSignViewController = self.storyboard?.instantiateViewController(withIdentifier: "smartSignViewController") as! SmartSignViewController
+                    smartSignViewController.dict = dict
+                    smartSignViewController.word = smartSignMenu.smartSignText
+                    self.navigationController?.pushViewController(smartSignViewController, animated: true)
+
+
+            }
+//            SmartSign.openUrl(urlString: url, sender: self)
+
+        }
+
+    }
+    
     
 
     override func didReceiveMemoryWarning() {
@@ -138,22 +185,6 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     }
     
     
-    // action triggered when long press any of the quick response buttons - edit or delete a quick response
-    func longPressQuickResponseButton(sender: UIButton) {
-        let alert = UIAlertController(title: "Edit/Delete Quick Response", message: "Edit text field to edit quick response and tap edit, or tap delete to delete quick response", preferredStyle: .alert)
-        
-        alert.addTextField(configurationHandler: configurationTextField)
-        alert.addAction(UIAlertAction(title: "Edit", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Delete", style: .default, handler:{ (UIAlertAction) in
-            print("Done !!")
-            
-            print("Item : \(self.tField.text)")
-        }))
-        self.present(alert, animated: true, completion: {
-            print("completion block")
-        })
-
-    }
     
     // action triggered when right nav bar icon is tapped
     func textToSpeechTapped(_ sender :UIBarButtonItem) {
@@ -167,9 +198,10 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
             
         } else {
             let string = self.message.text!
-            let synthesizer = AVSpeechSynthesizer()
             synthesizer.delegate = self
             let utterance = AVSpeechUtterance(string: string)
+            utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+            
             synthesizer.speak(utterance)
         }
     }
@@ -180,14 +212,18 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     }
     
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
-        print("finished")
+        let message = Message(tts: true, text: self.message.text!)
+        messages.append(message)
+        self.coversationTableView.reloadData()
+        self.message.text = ""
+        let index = IndexPath(row: messages.count - 1, section: 0)
+        self.coversationTableView.scrollToRow(at: index, at: .bottom, animated: true)
     }
 
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, willSpeakRangeOfSpeechString characterRange: NSRange, utterance: AVSpeechUtterance) {
         let mutableAttributedString = NSMutableAttributedString(string: utterance.speechString)
         mutableAttributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.blue, range: characterRange)
         self.message.attributedText = mutableAttributedString
-        print(mutableAttributedString)
 
     }
     // AVSpeechSynthesizerDelegate delegate funtions end
@@ -196,6 +232,9 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         if audioEngine.isRunning {
             audioEngine.stop()
             self.recognitionRequest?.endAudio()
+            let m = Message(tts: false, text: self.message.text!)
+            messages.append(m)
+            self.message.text = ""
             self.navigationItem.rightBarButtonItem?.isEnabled = false
             do {
                 try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
@@ -203,6 +242,10 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
             } catch {
                 print("audioSession properties weren't set because of an error.")
             }
+            self.coversationTableView.reloadData()
+            let index = IndexPath(row: messages.count - 1, section: 0)
+            self.coversationTableView.scrollToRow(at: index, at: .bottom, animated: true)
+
         } else {
             startRecordingSpeech()
         }
@@ -217,7 +260,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         
         let audioSession = AVAudioSession.sharedInstance()
         do {
-            try audioSession.setCategory(AVAudioSessionCategoryRecord)
+            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
             try audioSession.setMode(AVAudioSessionModeMeasurement)
             try audioSession.setActive(true, with: .notifyOthersOnDeactivation)
         } catch {
@@ -294,7 +337,13 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Add", style: .default, handler:{ (UIAlertAction) in
             let textField = alert.textFields!.first
-            self.savePhrase(name: textField!.text!)
+            if (textField?.text == nil || (textField?.text?.isEmpty)!) {
+                let error = UIAlertController(title: "Error", message: "Please enter a text to be saved", preferredStyle: .alert)
+                error.addAction(UIKit.UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                self.savePhrase(name: textField!.text!)
+            }
         }))
         self.present(alert, animated: true, completion: nil)
 
@@ -321,12 +370,69 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
             try managedContext.save()
             //5
             phrases.append(phrase)
-            
-
+            phrasesArray.append(name)
+            self.quickResponseTableView.reloadData()
             
         } catch let error as NSError  {
             print("Could not save \(error), \(error.userInfo)")
         }
+    }
+    
+    // action triggered when long press any of the quick response buttons - edit or delete a quick response
+    func longPressQuickResponseButton(sender: UILongPressGestureRecognizer) {
+        let alert = UIAlertController(title: "Edit/Delete Quick Response", message: "Edit text field to edit quick response and tap edit, or tap delete to delete quick response", preferredStyle: .alert)
+        
+        alert.addTextField(configurationHandler: configurationTextField)
+        alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { (UIAlertAction) in
+            let phrase = (sender.view?.subviews.first as! UILabel).text!
+            let new = alert.textFields!.first?.text!
+            if (new == nil || (new?.isEmpty)!) {
+                let error = UIAlertController(title: "Error", message: "Please enter a text to be saved", preferredStyle: .alert)
+                error.addAction(UIKit.UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+
+            } else {
+                self.updatePhrase(phrase: phrase, new: new!)
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Delete", style: .default, handler:{ (UIAlertAction) in
+            let phrase = (sender.view?.subviews.first as! UILabel).text!
+            self.deletePhrase(phrase: phrase)
+        }))
+        self.present(alert, animated: true, completion: {
+        })
+        
+    }
+
+    func deletePhrase(phrase: String) {
+        let i = phrasesArray.index(of: phrase)
+        let toDelete = phrases[i!]
+        self.managedObjectContext.delete(toDelete)
+        
+        do {
+            try self.managedObjectContext.save()
+            phrasesArray.remove(at: i!)
+            self.quickResponseTableView.reloadData()
+        } catch {
+            let saveError = error as NSError
+            print(saveError)
+        }
+    }
+    
+    func updatePhrase(phrase: String, new: String) {
+        let i = phrasesArray.index(of: phrase)
+        let toUpdate = phrases[i!] 
+        toUpdate.setValue(new, forKey: "text")
+        
+        do {
+            try toUpdate.managedObjectContext?.save()
+            phrasesArray[i!] = new
+            self.quickResponseTableView.reloadData()
+        } catch {
+            let saveError = error as NSError
+            print(saveError)
+        }
+        
     }
     
     func configurationTextField(_ textField: UITextField!)
@@ -343,38 +449,51 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "CellPortrait")
-        
-        if (cell == nil) {
-            cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "CellPortrait")
+
+        if (tableView.isEqual(self.coversationTableView)) {
+            let message = messages[indexPath.row]
+            let isTTS = message.tts
+            let content = message.text
+            if (isTTS) {
+                let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdMessageTTS, for: indexPath) as! ConversationTableViewCell
+                cell.configCell(message: content)
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdMessageSTT, for: indexPath) as! ConversationTableViewCell
+                cell.configCell(message: content)
+                return cell
+            }
+        } else if (tableView.isEqual(self.quickResponseTableView)) {
+            let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "CellPortrait")
             let horizontalScrollView:ASHorizontalScrollView = ASHorizontalScrollView(frame:CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: kCellHeight))
             
             horizontalScrollView.miniAppearPxOfLastItem = 10
             horizontalScrollView.uniformItemSize = CGSize(width: 100, height: 50)
-            print("phrases: \(phrases.count)")
-            for i in 0..<phrases.count {
+            for i in 0..<phrasesArray.count {
                 let button = UIButton(frame: CGRect.zero)
                 button.backgroundColor = UIColor.lightGray
-                let title = phrases[i].value(forKey: "text") as! String
-                button.layer.cornerRadius = 10.0
-                button.clipsToBounds = true
-                button.layer.masksToBounds = true
-                button.setTitle(title as String?, for: UIControlState.normal)
+                let title = phrasesArray[i]
+                button.setTitle(title as String?, for: .normal)
                 button.titleLabel?.textColor = UIColor.white
                 button.titleLabel!.numberOfLines = 0
                 button.titleLabel!.adjustsFontSizeToFitWidth = true
                 horizontalScrollView.addItem(button)
+                let view = horizontalScrollView.items.last
+                view?.layer.cornerRadius = 20
+                view?.layer.masksToBounds = true
                 button.addTarget(self, action: #selector(HomeViewController.tapQuickResponseButton), for: .touchUpInside)
                 button.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(HomeViewController.longPressQuickResponseButton)))
             }
             
-            cell?.contentView.addSubview(horizontalScrollView)
+            cell.contentView.addSubview(horizontalScrollView)
             horizontalScrollView.translatesAutoresizingMaskIntoConstraints = false
-            cell?.contentView.addConstraint(NSLayoutConstraint(item: horizontalScrollView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: kCellHeight))
-            cell?.contentView.addConstraint(NSLayoutConstraint(item: horizontalScrollView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: cell!.contentView, attribute: NSLayoutAttribute.width, multiplier: 1, constant: 0))
+            cell.contentView.addConstraint(NSLayoutConstraint(item: horizontalScrollView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: kCellHeight))
+            cell.contentView.addConstraint(NSLayoutConstraint(item: horizontalScrollView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: cell.contentView, attribute: NSLayoutAttribute.width, multiplier: 1, constant: 0))
+            
+            
+            return cell
         }
-        return cell!
-
+        return tableView.dequeueReusableCell(withIdentifier: "CellPortrait")!
 
     }
     
@@ -384,12 +503,29 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if (tableView.isEqual(self.coversationTableView)) {
+            return messages.count
+            
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return kCellHeight
+        if (tableView.isEqual(self.coversationTableView)) {
+            return UITableViewAutomaticDimension
+            
+            
+        } else {
+            return kCellHeight
+        }
     }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 45
+    }
+    
+    
     
 
     
