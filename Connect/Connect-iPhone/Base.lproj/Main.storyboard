@@ -37,9 +37,6 @@
                                 <items>
                                     <navigationItem id="hWl-wd-CWB">
                                         <nil key="title"/>
-                                        <barButtonItem key="leftBarButtonItem" image="setting" style="plain" id="b7C-bg-GKT">
-                                            <color key="tintColor" name="highlightColor" catalog="System" colorSpace="catalog"/>
-                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" image="plus" style="plain" id="ViY-m9-DlC">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DBJ-Qz-gEM">
                                                 <rect key="frame" x="288" y="7" width="79" height="30"/>
@@ -51,6 +48,7 @@
                                                     <action selector="addQuickResponse:" destination="nbH-YZ-AS8" eventType="touchUpInside" id="hUF-aK-Bvx"/>
                                                 </connections>
                                             </button>
+                                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -95,10 +93,10 @@
                                                         <constraint firstAttribute="width" constant="35" id="iAh-Xd-Wo7"/>
                                                     </constraints>
                                                 </imageView>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OMM-L3-th0">
+                                                <view multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OMM-L3-th0">
                                                     <rect key="frame" x="267.5" y="0.0" width="56.5" height="40"/>
                                                     <subviews>
-                                                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VLS-JT-9EC">
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VLS-JT-9EC" customClass="SmartSignLabel" customModule="Connect_iPhone" customModuleProvider="target">
                                                             <rect key="frame" x="8" y="8" width="40.5" height="24"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                                             <color key="textColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
@@ -143,10 +141,10 @@
                                                         <constraint firstAttribute="height" constant="25" id="KlC-xn-Sh5"/>
                                                     </constraints>
                                                 </imageView>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hwK-pf-pv4">
+                                                <view multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hwK-pf-pv4">
                                                     <rect key="frame" x="51" y="0.0" width="56.5" height="40"/>
                                                     <subviews>
-                                                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7S-Jw-x1r">
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7S-Jw-x1r" customClass="SmartSignLabel" customModule="Connect_iPhone" customModuleProvider="target">
                                                             <rect key="frame" x="8" y="8" width="40.5" height="24"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                                             <color key="textColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
@@ -219,6 +217,79 @@
             </objects>
             <point key="canvasLocation" x="877.60000000000002" y="691.304347826087"/>
         </scene>
+        <!--Smart Sign View Controller-->
+        <scene sceneID="PGj-aR-BYl">
+            <objects>
+                <viewController storyboardIdentifier="smartSignViewController" id="b8x-do-Nea" customClass="SmartSignViewController" customModule="Connect_iPhone" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="u4c-IS-T2m"/>
+                        <viewControllerLayoutGuide type="bottom" id="oPI-sA-LMz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mHu-LU-Tc4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="58" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bW3-4g-D6O">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="58" id="P7f-4c-YWe" customClass="SmartSignTableViewCell" customModule="Connect_iPhone" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="58"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="P7f-4c-YWe" id="IIE-M4-TaI">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69i-S0-8HX">
+                                                    <rect key="frame" x="8" y="0.0" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LmR-IR-oqk">
+                                                    <rect key="frame" x="8" y="29" width="359" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="69i-S0-8HX" firstAttribute="leading" secondItem="IIE-M4-TaI" secondAttribute="leading" constant="8" id="1rO-5W-qr0"/>
+                                                <constraint firstItem="LmR-IR-oqk" firstAttribute="leading" secondItem="IIE-M4-TaI" secondAttribute="leading" constant="8" id="6Cj-AB-10w"/>
+                                                <constraint firstAttribute="bottom" secondItem="LmR-IR-oqk" secondAttribute="bottom" constant="7" id="DDS-yN-G6H"/>
+                                                <constraint firstAttribute="trailing" secondItem="LmR-IR-oqk" secondAttribute="trailing" constant="8" id="P8b-A4-WO5"/>
+                                                <constraint firstItem="69i-S0-8HX" firstAttribute="top" secondItem="IIE-M4-TaI" secondAttribute="top" id="T4z-w9-2Tf"/>
+                                                <constraint firstItem="LmR-IR-oqk" firstAttribute="top" secondItem="69i-S0-8HX" secondAttribute="bottom" constant="8" id="Xf6-gT-2BJ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="title" destination="LmR-IR-oqk" id="xkg-uV-bOl"/>
+                                            <outlet property="word" destination="69i-S0-8HX" id="NzH-Gc-8O0"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="b8x-do-Nea" id="Rli-1R-73j"/>
+                                    <outlet property="delegate" destination="b8x-do-Nea" id="Zbj-KR-NHf"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oPI-sA-LMz" firstAttribute="top" secondItem="bW3-4g-D6O" secondAttribute="bottom" id="LXb-o0-5bI"/>
+                            <constraint firstItem="bW3-4g-D6O" firstAttribute="top" secondItem="u4c-IS-T2m" secondAttribute="bottom" constant="-20" id="YgW-Oo-fNJ"/>
+                            <constraint firstAttribute="trailing" secondItem="bW3-4g-D6O" secondAttribute="trailing" id="qqC-Z5-s5x"/>
+                            <constraint firstItem="bW3-4g-D6O" firstAttribute="leading" secondItem="mHu-LU-Tc4" secondAttribute="leading" id="tu0-AU-cRm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="bW3-4g-D6O" id="o23-rw-Bfq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pGb-eg-LkZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1829.5999999999999" y="691.304347826087"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="HBe-Zu-QAs">
             <objects>
@@ -231,7 +302,7 @@
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="1"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <color key="textShadowColor" patternImage="B7A2F9A0-0146-40D4-8CF5-EC732AE2FC7B" colorSpace="pattern"/>
+                            <color key="textShadowColor" patternImage="9C0B0292-8A17-4770-A3A4-D17E824B5945" colorSpace="pattern"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -245,7 +316,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="B7A2F9A0-0146-40D4-8CF5-EC732AE2FC7B" width="640" height="920">
+        <image name="9C0B0292-8A17-4770-A3A4-D17E824B5945" width="640" height="920">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -39574,7 +39645,6 @@ ACP/UQAj/1YAAAAAAAAEAQAAAAAAAABBAAAAAAAAAAAAAAAAACP/WA
 </mutableData>
         </image>
         <image name="plus" width="30" height="30"/>
-        <image name="setting" width="30" height="30"/>
         <image name="stt" width="60" height="40"/>
         <image name="tts" width="65" height="43"/>
     </resources>

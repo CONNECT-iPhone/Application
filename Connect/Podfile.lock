@@ -1,15 +1,18 @@
 PODS:
+  - Alamofire (4.0.1)
   - ASHorizontalScrollView (1.2)
   - PBWebViewController (0.5.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.0)
   - ASHorizontalScrollView (~> 1.2)
   - PBWebViewController (~> 0.3)
 
 SPEC CHECKSUMS:
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   ASHorizontalScrollView: 90287d2e6544cfc81d33f7bf91b6af85ec62f9a5
   PBWebViewController: 6537990155ca850fb8d0563efbc12becebc953ef
 
-PODFILE CHECKSUM: 3f7fd758666033e5a4e4c1a7223bc53d17ca9f93
+PODFILE CHECKSUM: c673aad426f04d1c19413f0604867e988a329b39
 
 COCOAPODS: 1.1.1

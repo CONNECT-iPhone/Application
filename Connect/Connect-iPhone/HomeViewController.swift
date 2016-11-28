@@ -3,7 +3,7 @@
 //  Connect-iPhone
 //
 //  Created by Youssef Hammoud on 9/26/16.
-//  Copyright © 2016 FiveBox. All rights reserved.
+//  Copyright © 2016 Connect-iPhone. All rights reserved.
 //
 
 import UIKit
@@ -11,6 +11,7 @@ import AVFoundation
 import Speech
 import CoreData
 import ASHorizontalScrollView
+import Alamofire
 
 private struct Constants {
     static let cellIdMessageTTS = "MessageCellTTS"
@@ -29,6 +30,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     
     //instance variables
     var tField: UITextField!
+    let synthesizer = AVSpeechSynthesizer()
     var speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))
     var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     var recognitionTask: SFSpeechRecognitionTask?
@@ -43,10 +45,10 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
 
 
-
     // put anything you want to see here, so it shows up once the view loads
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         quickResponseTableView.dataSource = self
         quickResponseTableView.delegate = self
         quickResponseTableView.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
@@ -55,7 +57,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         coversationTableView.separatorColor = UIColor.clear
         coversationTableView.allowsSelection = false
         coversationTableView.isUserInteractionEnabled = true
-        
+
         
         fetchData()
         
@@ -99,9 +101,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         
 
         
-        let smartSign = UIMenuItem(title: "SmartSign", action: #selector(toSmartSign))
-        UIMenuController.shared.menuItems = [smartSign]
-        // Do any additional setup after loading the view.
+                // Do any additional setup after loading the view.
     }
     
     func fetchData() {
@@ -119,14 +119,48 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         }
     }
     
-    func toSmartSign() {
-        if let range = self.message.selectedTextRange, let selectedText = self.message.text(in: range) {
-            print(selectedText)
-            
-            let url = "https://dictionary-smartsign.rhcloud.com/videos?keywords=\(selectedText)"
-            //            let youtubeURL = "http://www.youtube.com/embed/\(data[0]["id"])?rel=0&showinfo=0&controls=0&autoplay=1"
+    func toSmartSign(sender: UIMenuController) {
+        let smartSignMenu = sender.menuItems?.first as! SmartSignMenuItem
+        let text = smartSignMenu.smartSignText
+        print(text.components(separatedBy: " ").count)
+        if text.components(separatedBy: " ").count > 1 {
+            let optionMenu = UIAlertController(title: nil, message: "Choose word", preferredStyle: .actionSheet)
+            for word in text.components(separatedBy: " ") {
+                optionMenu.addAction(UIAlertAction(title: word, style: .default) { action -> Void in
+                    let url = "https://dictionary-smartsign.rhcloud.com/videos?keywords=\(word)"
+                    Alamofire.request(url)
+                        .responseJSON { response in
+                            let value = (response.result.value as! NSDictionary)
+                            let array = value["data"]
+                            let dict = (array as! Array<Any>) as! [[String:AnyObject]]
+                            let smartSignViewController = self.storyboard?.instantiateViewController(withIdentifier: "smartSignViewController") as! SmartSignViewController
+                            smartSignViewController.dict = dict
+                            smartSignViewController.word = word
+                            self.navigationController?.pushViewController(smartSignViewController, animated: true)
+                            
+                            
+                    }
+                })
+            }
+            self.present(optionMenu, animated: true, completion: nil)
+        } else {
+            let url = "https://dictionary-smartsign.rhcloud.com/videos?keywords=\(smartSignMenu.smartSignText)"
+            Alamofire.request(url)
+                .responseJSON { response in
+                    let value = (response.result.value as! NSDictionary)
+                    let array = value["data"]
+                    let dict = (array as! Array<Any>) as! [[String:AnyObject]]
+                    let smartSignViewController = self.storyboard?.instantiateViewController(withIdentifier: "smartSignViewController") as! SmartSignViewController
+                    smartSignViewController.dict = dict
+                    smartSignViewController.word = smartSignMenu.smartSignText
+                    self.navigationController?.pushViewController(smartSignViewController, animated: true)
+
+
+            }
 //            SmartSign.openUrl(urlString: url, sender: self)
+
         }
+
     }
     
     
@@ -164,9 +198,10 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
             
         } else {
             let string = self.message.text!
-            let synthesizer = AVSpeechSynthesizer()
             synthesizer.delegate = self
             let utterance = AVSpeechUtterance(string: string)
+            utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+            
             synthesizer.speak(utterance)
         }
     }
@@ -183,14 +218,12 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         self.message.text = ""
         let index = IndexPath(row: messages.count - 1, section: 0)
         self.coversationTableView.scrollToRow(at: index, at: .bottom, animated: true)
-        print("finished")
     }
 
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, willSpeakRangeOfSpeechString characterRange: NSRange, utterance: AVSpeechUtterance) {
         let mutableAttributedString = NSMutableAttributedString(string: utterance.speechString)
         mutableAttributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.blue, range: characterRange)
         self.message.attributedText = mutableAttributedString
-        print(mutableAttributedString)
 
     }
     // AVSpeechSynthesizerDelegate delegate funtions end
@@ -199,6 +232,9 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         if audioEngine.isRunning {
             audioEngine.stop()
             self.recognitionRequest?.endAudio()
+            let m = Message(tts: false, text: self.message.text!)
+            messages.append(m)
+            self.message.text = ""
             self.navigationItem.rightBarButtonItem?.isEnabled = false
             do {
                 try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
@@ -206,12 +242,10 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
             } catch {
                 print("audioSession properties weren't set because of an error.")
             }
-            let message = Message(tts: false, text: self.message.text!)
-            messages.append(message)
             self.coversationTableView.reloadData()
-            self.message.text = ""
             let index = IndexPath(row: messages.count - 1, section: 0)
             self.coversationTableView.scrollToRow(at: index, at: .bottom, animated: true)
+
         } else {
             startRecordingSpeech()
         }
@@ -348,10 +382,6 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     func longPressQuickResponseButton(sender: UILongPressGestureRecognizer) {
         let alert = UIAlertController(title: "Edit/Delete Quick Response", message: "Edit text field to edit quick response and tap edit, or tap delete to delete quick response", preferredStyle: .alert)
         
-        if (sender.state == UIGestureRecognizerState.began){
-            print("began")
-            print((sender.view?.subviews.first as! UILabel).text!)
-        }
         alert.addTextField(configurationHandler: configurationTextField)
         alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { (UIAlertAction) in
             let phrase = (sender.view?.subviews.first as! UILabel).text!
@@ -370,7 +400,6 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
             self.deletePhrase(phrase: phrase)
         }))
         self.present(alert, animated: true, completion: {
-            print("completion block")
         })
         
     }
@@ -428,11 +457,9 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
             if (isTTS) {
                 let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdMessageTTS, for: indexPath) as! ConversationTableViewCell
                 cell.configCell(message: content)
-                //self.roundCorners(field: cell.view, corners: [.bottomLeft, .bottomRight, .topLeft])
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdMessageSTT, for: indexPath) as! ConversationTableViewCell
-                //self.roundCorners(field: cell.view, corners: [.bottomLeft, .bottomRight, .topRight])
                 cell.configCell(message: content)
                 return cell
             }
@@ -442,7 +469,6 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
             
             horizontalScrollView.miniAppearPxOfLastItem = 10
             horizontalScrollView.uniformItemSize = CGSize(width: 100, height: 50)
-            print("number of phrases: \(phrasesArray.count)")
             for i in 0..<phrasesArray.count {
                 let button = UIButton(frame: CGRect.zero)
                 button.backgroundColor = UIColor.lightGray

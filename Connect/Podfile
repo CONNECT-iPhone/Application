@@ -6,6 +6,8 @@ target 'Connect-iPhone' do
   use_frameworks!
   pod 'ASHorizontalScrollView', '~> 1.2'
   pod 'PBWebViewController', '~>0.3'
+  pod 'Alamofire', '~> 4.0'
+
   # Pods for Connect-iPhone
 
   target 'Connect-iPhoneTests' do

@@ -3,7 +3,7 @@
 //  Connect-iPhone
 //
 //  Created by Youssef Hammoud on 11/18/16.
-//  Copyright © 2016 FiveBox. All rights reserved.
+//  Copyright © 2016 Connect-iPhone. All rights reserved.
 //
 
 import Foundation

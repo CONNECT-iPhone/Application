@@ -3,7 +3,7 @@
 //  Connect-iPhone
 //
 //  Created by Youssef Hammoud on 11/11/16.
-//  Copyright © 2016 FiveBox. All rights reserved.
+//  Copyright © 2016 Connect-iPhone. All rights reserved.
 //
 
 import UIKit
@@ -24,7 +24,6 @@ class SmartSign: NSObject {
         }
         
         SmartSign.webViewController?.url = url as URL?
-        print(SmartSign.webViewController?.url)
         SmartSign.webViewController?.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.stop, target: self, action: #selector(SmartSign.hide(sender:)))
         SmartSign.webViewController?.title = "Loading..."
         

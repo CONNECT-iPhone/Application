@@ -12,6 +12,10 @@
 		212ECFCF1D924C0C00DE702D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 212ECFCE1D924C0C00DE702D /* Assets.xcassets */; };
 		212ECFD21D924C0C00DE702D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 212ECFD01D924C0C00DE702D /* LaunchScreen.storyboard */; };
 		212ECFDD1D924C0C00DE702D /* Connect_iPhoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212ECFDC1D924C0C00DE702D /* Connect_iPhoneTests.swift */; };
+		214BE5271DE6CAFB00439726 /* SmartSignLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214BE5261DE6CAFB00439726 /* SmartSignLabel.swift */; };
+		214BE5291DE7C79300439726 /* SmartSignMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214BE5281DE7C79300439726 /* SmartSignMenuItem.swift */; };
+		214BE5371DEA412500439726 /* SmartSignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214BE5361DEA412500439726 /* SmartSignViewController.swift */; };
+		214BE5391DEA45D500439726 /* SmartSignTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214BE5381DEA45D500439726 /* SmartSignTableViewCell.swift */; };
 		2158B3631DD69323002D2210 /* SmartSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2158B3621DD69323002D2210 /* SmartSign.swift */; };
 		2158B3E01DDED171002D2210 /* ConversationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2158B3DF1DDED171002D2210 /* ConversationTableViewCell.swift */; };
 		2158B3E21DDEFAD4002D2210 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2158B3E11DDEFAD4002D2210 /* Message.swift */; };
@@ -42,6 +46,10 @@
 		212ECFD81D924C0C00DE702D /* Connect-iPhoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Connect-iPhoneTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		212ECFDC1D924C0C00DE702D /* Connect_iPhoneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connect_iPhoneTests.swift; sourceTree = "<group>"; };
 		212ECFDE1D924C0C00DE702D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		214BE5261DE6CAFB00439726 /* SmartSignLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmartSignLabel.swift; sourceTree = "<group>"; };
+		214BE5281DE7C79300439726 /* SmartSignMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmartSignMenuItem.swift; sourceTree = "<group>"; };
+		214BE5361DEA412500439726 /* SmartSignViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmartSignViewController.swift; sourceTree = "<group>"; };
+		214BE5381DEA45D500439726 /* SmartSignTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmartSignTableViewCell.swift; sourceTree = "<group>"; };
 		2158B3621DD69323002D2210 /* SmartSign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SmartSign.swift; path = ../SmartSign.swift; sourceTree = "<group>"; };
 		2158B3DF1DDED171002D2210 /* ConversationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCell.swift; sourceTree = "<group>"; };
 		2158B3E11DDEFAD4002D2210 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -110,6 +118,10 @@
 				217EB5CA1DD11E200021DE52 /* Phrase.swift */,
 				2158B3DF1DDED171002D2210 /* ConversationTableViewCell.swift */,
 				2158B3E11DDEFAD4002D2210 /* Message.swift */,
+				214BE5261DE6CAFB00439726 /* SmartSignLabel.swift */,
+				214BE5281DE7C79300439726 /* SmartSignMenuItem.swift */,
+				214BE5361DEA412500439726 /* SmartSignViewController.swift */,
+				214BE5381DEA45D500439726 /* SmartSignTableViewCell.swift */,
 			);
 			path = "Connect-iPhone";
 			sourceTree = "<group>";
@@ -347,12 +359,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				214BE5371DEA412500439726 /* SmartSignViewController.swift in Sources */,
 				2182552A1DC70080006C64B9 /* Connect-iPhone.xcdatamodeld in Sources */,
+				214BE5271DE6CAFB00439726 /* SmartSignLabel.swift in Sources */,
 				212ECFC51D924C0C00DE702D /* AppDelegate.swift in Sources */,
 				2158B3E01DDED171002D2210 /* ConversationTableViewCell.swift in Sources */,
 				2158B3631DD69323002D2210 /* SmartSign.swift in Sources */,
+				214BE5391DEA45D500439726 /* SmartSignTableViewCell.swift in Sources */,
 				217EB5CB1DD11E200021DE52 /* Phrase.swift in Sources */,
 				21B899E71D99BAAC002545FD /* HomeViewController.swift in Sources */,
+				214BE5291DE7C79300439726 /* SmartSignMenuItem.swift in Sources */,
 				2158B3E21DDEFAD4002D2210 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,7 +512,7 @@
 				INFOPLIST_FILE = "Connect-iPhone/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Connect.Connect-iPhone";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.whyHammoud.Connect-iPhone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -514,7 +530,7 @@
 				INFOPLIST_FILE = "Connect-iPhone/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Connect.Connect-iPhone";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.whyHammoud.Connect-iPhone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
