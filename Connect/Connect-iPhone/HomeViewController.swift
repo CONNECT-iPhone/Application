@@ -57,8 +57,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         coversationTableView.separatorColor = UIColor.clear
         coversationTableView.allowsSelection = false
         coversationTableView.isUserInteractionEnabled = true
-
-        
+                
         fetchData()
         
         self.navigationItem.title = "Connect"
@@ -517,7 +516,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
             
             
         } else {
-            return kCellHeight
+            return UITableViewAutomaticDimension
         }
     }
     
