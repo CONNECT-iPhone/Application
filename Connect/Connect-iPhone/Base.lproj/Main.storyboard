@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Connect-->
+        <!--STAR-->
         <scene sceneID="Oxf-uH-Wp1">
             <objects>
                 <viewController id="nbH-YZ-AS8" customClass="HomeViewController" customModule="Connect_iPhone" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9j2-PD-lNg">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type here" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="9j2-PD-lNg">
                                 <rect key="frame" x="16" y="72" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="ltm-5O-plI"/>
@@ -205,7 +205,7 @@
                             <constraint firstItem="YP2-z1-KTY" firstAttribute="leading" secondItem="tOe-B8-nn5" secondAttribute="leading" id="x6b-XY-Cw3"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Connect" id="fIX-z7-cxH"/>
+                    <navigationItem key="navigationItem" title="STAR" id="fIX-z7-cxH"/>
                     <connections>
                         <outlet property="add" destination="DBJ-Qz-gEM" id="oyg-T9-hhJ"/>
                         <outlet property="coversationTableView" destination="c2M-fP-1q3" id="A6D-1u-Eaf"/>
@@ -302,7 +302,7 @@
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="1"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <color key="textShadowColor" patternImage="9C0B0292-8A17-4770-A3A4-D17E824B5945" colorSpace="pattern"/>
+                            <color key="textShadowColor" patternImage="44D64857-64A1-4F0E-BBCA-5C617EBBA5F9" colorSpace="pattern"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -316,7 +316,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="9C0B0292-8A17-4770-A3A4-D17E824B5945" width="640" height="920">
+        <image name="44D64857-64A1-4F0E-BBCA-5C617EBBA5F9" width="640" height="920">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

@@ -48,7 +48,6 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     // put anything you want to see here, so it shows up once the view loads
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         quickResponseTableView.dataSource = self
         quickResponseTableView.delegate = self
         quickResponseTableView.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
@@ -60,7 +59,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
                 
         fetchData()
         
-        self.navigationItem.title = "Connect"
+        self.navigationItem.title = "STAR"
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white, NSFontAttributeName: UIFont(name: "Avenir Next Medium", size: 20)!]
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.dismissKeyboard))
@@ -97,11 +96,8 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
                 self.navigationItem.rightBarButtonItem?.isEnabled = isButtonEnabled
             }
         })
-        
-
-        
-                // Do any additional setup after loading the view.
     }
+    
     
     func fetchData() {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Phrase")
@@ -136,8 +132,6 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
                             smartSignViewController.dict = dict
                             smartSignViewController.word = word
                             self.navigationController?.pushViewController(smartSignViewController, animated: true)
-                            
-                            
                     }
                 })
             }
@@ -153,11 +147,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
                     smartSignViewController.dict = dict
                     smartSignViewController.word = smartSignMenu.smartSignText
                     self.navigationController?.pushViewController(smartSignViewController, animated: true)
-
-
             }
-//            SmartSign.openUrl(urlString: url, sender: self)
-
         }
 
     }
@@ -178,6 +168,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     
         let string = sender.titleLabel?.text
         let utterance = AVSpeechUtterance(string: string!)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         let synthesizer = AVSpeechSynthesizer()
         synthesizer.delegate = self
         synthesizer.speak(utterance)
@@ -217,6 +208,8 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         self.message.text = ""
         let index = IndexPath(row: messages.count - 1, section: 0)
         self.coversationTableView.scrollToRow(at: index, at: .bottom, animated: true)
+        self.message.endEditing(true)
+
     }
 
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, willSpeakRangeOfSpeechString characterRange: NSRange, utterance: AVSpeechUtterance) {
@@ -225,15 +218,16 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         self.message.attributedText = mutableAttributedString
 
     }
+    
     // AVSpeechSynthesizerDelegate delegate funtions end
     
     func speechToTextTapped(_ sender :UIBarButtonItem) {
         if audioEngine.isRunning {
             audioEngine.stop()
             self.recognitionRequest?.endAudio()
-            let m = Message(tts: false, text: self.message.text!)
+            let text = self.message.text!
+            let m = Message(tts: false, text: text)
             messages.append(m)
-            self.message.text = ""
             self.navigationItem.rightBarButtonItem?.isEnabled = false
             do {
                 try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
@@ -242,9 +236,9 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
                 print("audioSession properties weren't set because of an error.")
             }
             self.coversationTableView.reloadData()
+            self.message.text = ""
             let index = IndexPath(row: messages.count - 1, section: 0)
             self.coversationTableView.scrollToRow(at: index, at: .bottom, animated: true)
-
         } else {
             startRecordingSpeech()
         }
@@ -450,9 +444,9 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         if (tableView.isEqual(self.coversationTableView)) {
-            let message = messages[indexPath.row]
-            let isTTS = message.tts
-            let content = message.text
+            let m = messages[indexPath.row]
+            let isTTS = m.tts
+            let content = m.text
             if (isTTS) {
                 let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdMessageTTS, for: indexPath) as! ConversationTableViewCell
                 cell.configCell(message: content)
@@ -474,7 +468,6 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
                 let title = phrasesArray[i]
                 button.setTitle(title as String?, for: .normal)
                 button.titleLabel?.textColor = UIColor.white
-                button.titleLabel!.numberOfLines = 0
                 button.titleLabel!.adjustsFontSizeToFitWidth = true
                 horizontalScrollView.addItem(button)
                 let view = horizontalScrollView.items.last
@@ -492,6 +485,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
             
             return cell
         }
+
         return tableView.dequeueReusableCell(withIdentifier: "CellPortrait")!
 
     }
