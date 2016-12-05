@@ -4,15 +4,19 @@
 
 TODO: Write a project description
 
-## Installation
+## Install Guide CONNECT-iPhone
+
 
 TODO: Describe the installation process
 
-## Usage
+## Pre-requisites
+
+## DEPENDENCIES
+
 
 TODO: Write usage instructions
 
-## Contributing
+## INSTALLATION
 
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
@@ -20,17 +24,21 @@ TODO: Write usage instructions
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
-## History
+## RUN INSTRUCTIONS
+
+## NEW FEATURES
 
 TODO: Write history
 
-## Credits
+## BUG FIXES
+
+TODO: Write history
+
+
+## KNOWN BUGS
 
 TODO: Write credits
-
-## License
-
-TODO: Write license
 ]]></content>
   <tabTrigger>readme</tabTrigger>
 </snippet>
+
