@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-# ${1:Project Name}
+# ${1:CONNECT-iPhone}
 
 TODO: Write a project description
 
