@@ -6,12 +6,12 @@ Today, communication is difficult for the deaf. Ninety percent of deaf kids have
 
 ## Release Notes
   Software Features in this Release:<br />
-    <ts> * SmartSign Integration<br />
+   * SmartSign Integration<br />
   Bug Fixes from Last Release:<br />
-    <ts> * Can now do both speech-to-text and text-to-speech without app crashing<br />
+   * Can now do both speech-to-text and text-to-speech without app crashing<br />
   Known Bugs and Defects:<br />
-    <ts> * If you type a really long quick phrase, the newly added quick phrase text at the bottom would decrease in size immensely to fit in the allotted space.<br />
-    <ts> * If you add a quick phrase that was already there, it will still add the quick phrase. The quick phrases at the bottom, should only add unique quick phrases.
+   * If you type a really long quick phrase, the newly added quick phrase text at the bottom would decrease in size immensely to fit in the allotted space.<br />
+   * If you add a quick phrase that was already there, it will still add the quick phrase. The quick phrases at the bottom, should only add unique quick phrases.
   
 ## Install Guide
 
@@ -38,14 +38,14 @@ Today, communication is difficult for the deaf. Ninety percent of deaf kids have
   TODO: what are common errors that occur during installation and what is the corrective action
 
 ## CONTRIBUTING TO THE SOURCE CODE INSTRUCTIONS
-<ts> 1. Fork it! <br />
-<ts> 2. Create your feature branch: `git checkout -b my-new-feature` <br />
-<ts> 3. Commit your changes: `git commit -am 'Add some feature'` <br />
-<ts> 4. Push to the branch: `git push origin my-new-feature` <br />
-<ts> 5. Submit a pull request :D <br />
+  1. Fork it! <br />
+  2. Create your feature branch: `git checkout -b my-new-feature` <br />
+  3. Commit your changes: `git commit -am 'Add some feature'` <br />
+  4. Push to the branch: `git push origin my-new-feature` <br />
+  5. Submit a pull request :D <br />
 
 ## CREDITS
-<bold>Georgia Institute of Technology Senior Design Application Fall 2016 </bold> <br />
+  Georgia Institute of Technology Senior Design Application Fall 2016 <br />
   Casey Bennett <br />
   Sidney Durant <br />
   Youssef Hammoud <br />
