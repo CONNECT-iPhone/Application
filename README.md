@@ -24,23 +24,19 @@ Today, communication is difficult for the deaf. Ninety percent of deaf kids have
   Here is additional information about cocoapods https://cocoapods.org/
   
 ### DOWNLOAD INSTRUCTIONS
-  TODO: how will the customer and users get access to the project?
   Once you have Xcode 8, Swift 3 and CocoaPods installed on your computer, download this project on your machine. Then simply go to terminal and navigate to the priject folder. In the project folder do `pod install` to make sure all pods are installed.
 
 ### BUILD INSTRUCTIONS
-  TODO: only if needed. DELETE section if not needed.
   Now you have everything you need to open the project. In terminal you can do <br/>
   `open Connect-iPhone.xcworkspace`<br/>
   This command will basically open the Xcode workspace for the Connect-iPhone project.
   To build the application, you will need to do `Command + B` or from the menu `Product>Build`.
 
 ### RUN INSTRUCTIONS
-  TODO: what does the user/customer actually have to do to get the software to execute
   To run the application on a simulator, you will need to select (add) a simulator in Xcode, then click on the play button.
   To run the app on an iPhone device, make sure you have an AppleDeveloper Account and you have an iPhone device connected to the computer via USB cable. Then go to the Targets and select `Connect-iPhone`, then make sure you have your account in signing section (under General tab) with your registered device. Then go ahead and click on the play button to install the app build on your device and run it.
 
 ### TROUBLESHOOTING
-  TODO: what are common errors that occur during installation and what is the corrective action
   Common errors that might happen are: <br/>
   * probelms with building the project after installation. Make sure you are opening the `Connect-iPhone.xcworkspace` not `Connect-iPhone.xcodeproj`
   * Getting the app to run on the device. The best place to find the solution for this is the AppleDevelopers website https://developer.apple.com/
