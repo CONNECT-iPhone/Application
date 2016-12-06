@@ -4,6 +4,7 @@
 //
 //  Created by Youssef Hammoud on 11/26/16.
 //  Copyright © 2016 Connect-iPhone. All rights reserved.
+//  table view to view the multipule meanings to the same word
 //
 
 import UIKit
@@ -13,6 +14,7 @@ class SmartSignViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var tableView: UITableView!
     var dict: [[String:AnyObject]] = []
     var word = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -24,6 +26,8 @@ class SmartSignViewController: UIViewController, UITableViewDelegate, UITableVie
         // Dispose of any resources that can be recreated.
     }
     
+    // delegate funtions
+    // configures a cell and returns it
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SmartSignTableViewCell
@@ -34,6 +38,7 @@ class SmartSignViewController: UIViewController, UITableViewDelegate, UITableVie
         
     }
     
+    // detects if a row has been selected in a the table view and acts upon the detection.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let smartSignID = dict[indexPath.row]["id"] as! String
         print(smartSignID)
@@ -43,11 +48,11 @@ class SmartSignViewController: UIViewController, UITableViewDelegate, UITableVie
 
     }
     
-    
+    // number of sections in the table view
     func tableView(_ tableView: UITableView, numberOfSections section: Int) -> Int {
         return 1
     }
-    
+    // number of rows in each section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return dict.count
     }

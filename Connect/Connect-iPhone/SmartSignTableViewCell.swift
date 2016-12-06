@@ -23,6 +23,7 @@ class SmartSignTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    // initializes the variables in the cell and adjusts its size to fit
     func configCell(word: String, title: String) {
         self.word.text = word
         self.title.text = title

@@ -4,7 +4,9 @@
 //
 //  Created by Youssef Hammoud on 11/24/16.
 //  Copyright © 2016 Connect-iPhone. All rights reserved.
-//
+
+
+//  This class basically is a subclass of UILabel, that addes the option of viewing the smartsign UIMenuItem on long press.
 
 import Foundation
 import UIKit
@@ -37,22 +39,12 @@ class SmartSignLabel: UILabel {
         }
         
     }
-    
-    func smartSign(sender: AnyObject?) {
-        
-    }
+
     
     func getWordsInText() -> [String] {
         return (self.text?.components(separatedBy: CharacterSet(charactersIn: " ,!?.")))!
     }
     
-    
-//    func copy(sender: AnyObject?) {
-//        let board = UIPasteboard.general
-////        board.string = text
-////        let menu = UIMenuController.shared
-////        menu.setMenuVisible(false, animated: true)
-//    }
     
     
     override var canBecomeFirstResponder: Bool { return true }
