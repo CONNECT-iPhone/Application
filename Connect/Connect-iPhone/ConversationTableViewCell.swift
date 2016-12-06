@@ -6,6 +6,7 @@
 //  Copyright © 2016 Connect-iPhone. All rights reserved.
 //
 
+// This class stores the data for each cell in the ConversationTableView
 import UIKit
 
 class ConversationTableViewCell: UITableViewCell {
@@ -17,8 +18,6 @@ class ConversationTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        
-
     }
 
     
@@ -28,7 +27,7 @@ class ConversationTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    
+    // initializes the the data in the cell and sets the view frame width the the size of the message.
     func configCell(message: String) {
         self.messageContent.text = message as String
         self.view.frame.size.width = messageContent.frame.size.width + 10

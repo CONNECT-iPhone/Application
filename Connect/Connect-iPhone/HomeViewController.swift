@@ -13,6 +13,7 @@ import CoreData
 import ASHorizontalScrollView
 import Alamofire
 
+// struct to hold the cell identifiers of whether the message is TTS or STT
 private struct Constants {
     static let cellIdMessageTTS = "MessageCellTTS"
     static let cellIdMessageSTT = "MessageCellSTT"
@@ -48,7 +49,6 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     // put anything you want to see here, so it shows up once the view loads
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         quickResponseTableView.dataSource = self
         quickResponseTableView.delegate = self
         quickResponseTableView.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
@@ -57,11 +57,10 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         coversationTableView.separatorColor = UIColor.clear
         coversationTableView.allowsSelection = false
         coversationTableView.isUserInteractionEnabled = true
-
-        
+                
         fetchData()
         
-        self.navigationItem.title = "Connect"
+        self.navigationItem.title = "STAR"
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white, NSFontAttributeName: UIFont(name: "Avenir Next Medium", size: 20)!]
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.dismissKeyboard))
@@ -98,16 +97,13 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
                 self.navigationItem.rightBarButtonItem?.isEnabled = isButtonEnabled
             }
         })
-        
-
-        
-                // Do any additional setup after loading the view.
     }
     
+    
+    // this fucntion fetches the quick responses from Core Data
     func fetchData() {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Phrase")
         
-        //3
         do {
             let results = try self.managedObjectContext.fetch(fetchRequest)
             phrases = results as! [NSManagedObject]
@@ -119,6 +115,13 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         }
     }
     
+    // this fucntion handles the smartSign action
+    // after long pressing a word and tapping smartSign, 
+    // this is the handler that takes car of the rest and
+    // pedirect you the the YouTube video in the webview
+    // if the label selected had more than one word, 
+    // then we present all the words in the text for the user 
+    // in a ActionController so they can pick the word they want.
     func toSmartSign(sender: UIMenuController) {
         let smartSignMenu = sender.menuItems?.first as! SmartSignMenuItem
         let text = smartSignMenu.smartSignText
@@ -137,8 +140,6 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
                             smartSignViewController.dict = dict
                             smartSignViewController.word = word
                             self.navigationController?.pushViewController(smartSignViewController, animated: true)
-                            
-                            
                     }
                 })
             }
@@ -154,11 +155,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
                     smartSignViewController.dict = dict
                     smartSignViewController.word = smartSignMenu.smartSignText
                     self.navigationController?.pushViewController(smartSignViewController, animated: true)
-
-
             }
-//            SmartSign.openUrl(urlString: url, sender: self)
-
         }
 
     }
@@ -170,6 +167,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         // Dispose of any resources that can be recreated.
     }
     
+    // hides the keyboard when we tap outside the keyboard/anywhere in the screem.
     func dismissKeyboard() {
         self.message.endEditing(true)
     }
@@ -179,6 +177,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     
         let string = sender.titleLabel?.text
         let utterance = AVSpeechUtterance(string: string!)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         let synthesizer = AVSpeechSynthesizer()
         synthesizer.delegate = self
         synthesizer.speak(utterance)
@@ -211,6 +210,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         print("starting")
     }
     
+    // AVSpeechSynthesizerDelegate delegate funtions
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         let message = Message(tts: true, text: self.message.text!)
         messages.append(message)
@@ -218,23 +218,26 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         self.message.text = ""
         let index = IndexPath(row: messages.count - 1, section: 0)
         self.coversationTableView.scrollToRow(at: index, at: .bottom, animated: true)
-    }
+        self.message.endEditing(true)
 
+    }
+    
+    // AVSpeechSynthesizerDelegate delegate funtions
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, willSpeakRangeOfSpeechString characterRange: NSRange, utterance: AVSpeechUtterance) {
         let mutableAttributedString = NSMutableAttributedString(string: utterance.speechString)
         mutableAttributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.blue, range: characterRange)
         self.message.attributedText = mutableAttributedString
 
     }
-    // AVSpeechSynthesizerDelegate delegate funtions end
     
+    // the action handler for tapping the speech to text button in the nav bar
     func speechToTextTapped(_ sender :UIBarButtonItem) {
         if audioEngine.isRunning {
             audioEngine.stop()
             self.recognitionRequest?.endAudio()
-            let m = Message(tts: false, text: self.message.text!)
+            let text = self.message.text!
+            let m = Message(tts: false, text: text)
             messages.append(m)
-            self.message.text = ""
             self.navigationItem.rightBarButtonItem?.isEnabled = false
             do {
                 try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
@@ -243,14 +246,15 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
                 print("audioSession properties weren't set because of an error.")
             }
             self.coversationTableView.reloadData()
+            self.message.text = ""
             let index = IndexPath(row: messages.count - 1, section: 0)
             self.coversationTableView.scrollToRow(at: index, at: .bottom, animated: true)
-
         } else {
             startRecordingSpeech()
         }
     }
     
+    // function that starts recording the speecj
     func startRecordingSpeech() {
         
         if recognitionTask != nil {
@@ -316,7 +320,8 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         self.message.text = "Say something, I'm listening!"
     }
     
-    
+    // SFSpeechRecognizer delegate funtions
+
     func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
         if available {
             self.navigationItem.rightBarButtonItem?.isEnabled = true
@@ -328,9 +333,6 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
     
     // action triggered when add+ button is tapped on the bottom bar
     @IBAction func addQuickResponse(_ sender: UIButton) {
-        
-        
-
         let alert = UIAlertController(title: "Add new quick response", message: "", preferredStyle: .alert)
         
         alert.addTextField(configurationHandler: configurationTextField)
@@ -349,6 +351,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
 
     }
     
+    // handler for saving the phrases locally in core data
     func savePhrase(name: String) {
         //1
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -404,6 +407,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         
     }
 
+    // handler for deleting phrases from core data
     func deletePhrase(phrase: String) {
         let i = phrasesArray.index(of: phrase)
         let toDelete = phrases[i!]
@@ -419,6 +423,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         }
     }
     
+    // handler for updating phrase in core date
     func updatePhrase(phrase: String, new: String) {
         let i = phrasesArray.index(of: phrase)
         let toUpdate = phrases[i!] 
@@ -435,6 +440,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         
     }
     
+    // handler for getting the text entered in AlertViewController text fields (quick responses)
     func configurationTextField(_ textField: UITextField!)
     {
         textField.placeholder = "Enter an item"
@@ -447,13 +453,14 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         self.quickResponseTableView.reloadData()
         
     }
-    
+    // table view delegates and data source funtions
+    // handles viewing the data on the conversation view and the quick responses
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         if (tableView.isEqual(self.coversationTableView)) {
-            let message = messages[indexPath.row]
-            let isTTS = message.tts
-            let content = message.text
+            let m = messages[indexPath.row]
+            let isTTS = m.tts
+            let content = m.text
             if (isTTS) {
                 let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdMessageTTS, for: indexPath) as! ConversationTableViewCell
                 cell.configCell(message: content)
@@ -475,7 +482,6 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
                 let title = phrasesArray[i]
                 button.setTitle(title as String?, for: .normal)
                 button.titleLabel?.textColor = UIColor.white
-                button.titleLabel!.numberOfLines = 0
                 button.titleLabel!.adjustsFontSizeToFitWidth = true
                 horizontalScrollView.addItem(button)
                 let view = horizontalScrollView.items.last
@@ -493,15 +499,17 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
             
             return cell
         }
+
         return tableView.dequeueReusableCell(withIdentifier: "CellPortrait")!
 
     }
     
-    
+    // returns the number of sections in the table view
     func tableView(_ tableView: UITableView, numberOfSections section: Int) -> Int {
         return 1
     }
     
+    // returns the number of rows in each section in the table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (tableView.isEqual(self.coversationTableView)) {
             return messages.count
@@ -511,34 +519,19 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeec
         }
     }
     
+    // returns the height of each row at any index path in the table view
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if (tableView.isEqual(self.coversationTableView)) {
             return UITableViewAutomaticDimension
             
-            
         } else {
-            return kCellHeight
+            return UITableViewAutomaticDimension
         }
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 45
     }
-    
-    
-    
 
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
